@@ -11,9 +11,6 @@ export const Hero = () => (
     </div>
     
     <div className="relative z-10 container px-6 md:px-12 text-left text-white max-w-6xl">
-      <div className="inline-block mb-6 px-4 py-1.5 border border-[#C9A34E] bg-black/20 backdrop-blur-md">
-        <span className="text-[#C9A34E] text-[10px] font-sans tracking-[0.4em] uppercase">Boutique de Higienização Premium</span>
-      </div>
       <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.05] animate-in fade-in slide-in-from-left duration-1000">
         Conservação e proteção <br />
         <span className="italic text-[#C9A34E]">para estofados que fazem</span> <br />
