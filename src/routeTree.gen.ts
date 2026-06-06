@@ -17,7 +17,9 @@ import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento
 import { Route as AreasAtendidasRouteImport } from './routes/areas-atendidas'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicosSofasRouteImport } from './routes/servicos.sofas'
+import { Route as ServicosPoltronasRouteImport } from './routes/servicos.poltronas'
 import { Route as ServicosImpermeabilizacaoRouteImport } from './routes/servicos.impermeabilizacao'
+import { Route as ServicosColchoesRouteImport } from './routes/servicos.colchoes'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -59,12 +61,22 @@ const ServicosSofasRoute = ServicosSofasRouteImport.update({
   path: '/sofas',
   getParentRoute: () => ServicosRoute,
 } as any)
+const ServicosPoltronasRoute = ServicosPoltronasRouteImport.update({
+  id: '/poltronas',
+  path: '/poltronas',
+  getParentRoute: () => ServicosRoute,
+} as any)
 const ServicosImpermeabilizacaoRoute =
   ServicosImpermeabilizacaoRouteImport.update({
     id: '/impermeabilizacao',
     path: '/impermeabilizacao',
     getParentRoute: () => ServicosRoute,
   } as any)
+const ServicosColchoesRoute = ServicosColchoesRouteImport.update({
+  id: '/colchoes',
+  path: '/colchoes',
+  getParentRoute: () => ServicosRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,7 +86,9 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/colchoes': typeof ServicosColchoesRoute
   '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/poltronas': typeof ServicosPoltronasRoute
   '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRoutesByTo {
@@ -85,7 +99,9 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/colchoes': typeof ServicosColchoesRoute
   '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/poltronas': typeof ServicosPoltronasRoute
   '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRoutesById {
@@ -97,7 +113,9 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/colchoes': typeof ServicosColchoesRoute
   '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/poltronas': typeof ServicosPoltronasRoute
   '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRouteTypes {
@@ -110,7 +128,9 @@ export interface FileRouteTypes {
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
+    | '/servicos/colchoes'
     | '/servicos/impermeabilizacao'
+    | '/servicos/poltronas'
     | '/servicos/sofas'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,7 +141,9 @@ export interface FileRouteTypes {
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
+    | '/servicos/colchoes'
     | '/servicos/impermeabilizacao'
+    | '/servicos/poltronas'
     | '/servicos/sofas'
   id:
     | '__root__'
@@ -132,7 +154,9 @@ export interface FileRouteTypes {
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
+    | '/servicos/colchoes'
     | '/servicos/impermeabilizacao'
+    | '/servicos/poltronas'
     | '/servicos/sofas'
   fileRoutesById: FileRoutesById
 }
@@ -204,6 +228,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosSofasRouteImport
       parentRoute: typeof ServicosRoute
     }
+    '/servicos/poltronas': {
+      id: '/servicos/poltronas'
+      path: '/poltronas'
+      fullPath: '/servicos/poltronas'
+      preLoaderRoute: typeof ServicosPoltronasRouteImport
+      parentRoute: typeof ServicosRoute
+    }
     '/servicos/impermeabilizacao': {
       id: '/servicos/impermeabilizacao'
       path: '/impermeabilizacao'
@@ -211,16 +242,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosImpermeabilizacaoRouteImport
       parentRoute: typeof ServicosRoute
     }
+    '/servicos/colchoes': {
+      id: '/servicos/colchoes'
+      path: '/colchoes'
+      fullPath: '/servicos/colchoes'
+      preLoaderRoute: typeof ServicosColchoesRouteImport
+      parentRoute: typeof ServicosRoute
+    }
   }
 }
 
 interface ServicosRouteChildren {
+  ServicosColchoesRoute: typeof ServicosColchoesRoute
   ServicosImpermeabilizacaoRoute: typeof ServicosImpermeabilizacaoRoute
+  ServicosPoltronasRoute: typeof ServicosPoltronasRoute
   ServicosSofasRoute: typeof ServicosSofasRoute
 }
 
 const ServicosRouteChildren: ServicosRouteChildren = {
+  ServicosColchoesRoute: ServicosColchoesRoute,
   ServicosImpermeabilizacaoRoute: ServicosImpermeabilizacaoRoute,
+  ServicosPoltronasRoute: ServicosPoltronasRoute,
   ServicosSofasRoute: ServicosSofasRoute,
 }
 

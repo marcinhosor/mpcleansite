@@ -7,9 +7,7 @@ export const Route = createFileRoute('/servicos')({
   component: () => (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-24">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
       <WhatsAppButton />
     </div>
