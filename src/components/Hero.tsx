@@ -11,12 +11,12 @@ export const Hero = () => (
     </div>
     
     <div className="relative z-10 container px-6 md:px-12 text-left text-white max-w-6xl">
-      <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.05] animate-in fade-in slide-in-from-left duration-1000">
-        Conservação e proteção <br />
-        <span className="italic text-[#C9A34E]">para estofados que fazem</span> <br />
+      <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-10 leading-[1.1] animate-in fade-in slide-in-from-left duration-1000">
+        Conservação e proteção <br className="hidden md:block" />
+        <span className="italic text-[#C9A34E]">para estofados que fazem</span> <br className="hidden md:block" />
         parte do seu patrimônio.
       </h1>
-      <p className="text-lg md:text-xl mb-12 max-w-xl font-sans text-gray-200 leading-relaxed font-light tracking-wide animate-in fade-in slide-in-from-left duration-1000 delay-300">
+      <p className="text-base md:text-lg mb-14 max-w-2xl font-sans text-gray-200 leading-relaxed font-light tracking-[0.05em] animate-in fade-in slide-in-from-left duration-1000 delay-300">
         Especialistas em higienização premium, preservação de tecidos nobres e proteção de ambientes sofisticados.
       </p>
       <div className="flex flex-col md:flex-row gap-6 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
