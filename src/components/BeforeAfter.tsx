@@ -1,5 +1,7 @@
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
+import resultsBefore from "../assets/results-before.png";
 import resultsAfter from "../assets/results-after.png";
+
 
 
 export const BeforeAfter = () => (
@@ -41,7 +43,7 @@ export const BeforeAfter = () => (
         <div className="flex-1 w-full order-1 lg:order-2">
           <div className="relative p-3 bg-[#F5F5F5] shadow-[0_30px_60px_rgba(0,0,0,0.1)] border border-gray-100 group">
             <ReactCompareSlider
-              itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop" alt="Antes" className="grayscale" />}
+              itemOne={<ReactCompareSliderImage src={resultsBefore} alt="Antes" />}
               itemTwo={<ReactCompareSliderImage src={resultsAfter} alt="Depois" />}
               style={{ height: '550px', width: '100%' }}
               handle={
