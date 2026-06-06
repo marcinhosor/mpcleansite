@@ -1,36 +1,48 @@
-import { Droplets, Coffee, Wine, GlassWater } from "lucide-react";
+import { Droplets, Coffee, Wine, GlassWater, Shield } from "lucide-react";
 
 export const Impermeabilization = () => (
-  <section className="py-24 bg-gray-50 overflow-hidden">
-    <div className="container px-4">
-      <div className="flex flex-col lg:flex-row items-center gap-16">
-        <div className="lg:w-1/2">
-          <h2 className="text-4xl font-serif mb-6 text-[#0A0A0A]">Proteção invisível para seu investimento.</h2>
-          <p className="text-lg font-sans text-gray-700 mb-10 leading-relaxed">
-            Nosso tratamento cria uma barreira protetora que dificulta a absorção de líquidos e auxilia na conservação do tecido, mantendo seu estofado novo por muito mais tempo.
+  <section className="py-32 bg-[#FDFDFD] overflow-hidden">
+    <div className="container px-6">
+      <div className="flex flex-col lg:flex-row items-center gap-24">
+        <div className="lg:w-5/12 space-y-10">
+          <div className="space-y-6">
+            <span className="text-[#C9A34E] text-xs font-sans tracking-[0.4em] uppercase block">Tecnologia Avançada</span>
+            <h2 className="text-4xl md:text-5xl font-serif text-[#0A0A0A] leading-tight">
+              Proteção invisível <br /> <span className="italic">para o seu investimento.</span>
+            </h2>
+          </div>
+          
+          <p className="text-lg font-sans text-gray-500 font-light leading-relaxed tracking-wide">
+            Nosso tratamento de blindagem cria uma barreira molecular protetora que impede a absorção de líquidos, facilitando a limpeza e preservando a integridade das fibras por anos.
           </p>
-          <div className="grid grid-cols-4 gap-4">
+          
+          <div className="grid grid-cols-2 gap-12 pt-4">
             {[
-              { icon: GlassWater, label: "Água" },
-              { icon: Coffee, label: "Café" },
-              { icon: Droplets, label: "Refrigerante" },
-              { icon: Wine, label: "Vinho" },
+              { icon: GlassWater, label: "Repelência" },
+              { icon: Shield, label: "Blindagem" },
+              { icon: Droplets, label: "Higiene" },
+              { icon: Wine, label: "Preservação" },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#C9A34E] shadow-sm">
-                  <item.icon size={28} />
+              <div key={i} className="flex items-center gap-6 group">
+                <div className="w-12 h-12 border border-[#C9A34E]/20 flex items-center justify-center text-[#C9A34E] group-hover:bg-[#C9A34E] group-hover:text-white transition-all duration-500">
+                  <item.icon size={20} strokeWidth={1} />
                 </div>
-                <span className="text-sm font-medium uppercase tracking-tight">{item.label}</span>
+                <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em]">{item.label}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="lg:w-1/2">
-          <img 
-            src="https://images.unsplash.com/photo-1549493597-1df9557f92e1?q=80&w=2070&auto=format&fit=crop" 
-            alt="Impermeabilização" 
-            className="rounded-lg shadow-xl"
-          />
+        
+        <div className="lg:w-7/12 relative">
+          <div className="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-[#C9A34E]/30 z-0"></div>
+          <div className="relative z-10 p-4 bg-white shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1549493597-1df9557f92e1?q=80&w=2070&auto=format&fit=crop" 
+              alt="Impermeabilização Premium" 
+              className="w-full grayscale hover:grayscale-0 transition-all duration-1000"
+            />
+          </div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 border-r border-b border-[#C9A34E]/30 z-0"></div>
         </div>
       </div>
     </div>
