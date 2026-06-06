@@ -14,7 +14,7 @@ export const Impermeabilization = () => (
           </div>
           
           <p className="text-lg font-sans text-gray-500 font-light leading-relaxed tracking-wide">
-            Nosso tratamento impermeabilizante auxilia na proteção contra líquidos e contribui para a preservação da aparência original dos tecidos. Uma blindagem molecular que mantém a elegância das suas peças por muito mais tempo.
+            Mais do que uma impermeabilização convencional, aplicamos um tratamento protetivo que atua como uma camada de proteção sobre os tecidos, auxiliando na conservação da aparência original e na longevidade dos estofados. Uma forma inteligente de proteger o investimento realizado em peças que fazem parte do seu patrimônio.
           </p>
           
           <div className="grid grid-cols-2 gap-12 pt-6">
