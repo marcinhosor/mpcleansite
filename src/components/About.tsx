@@ -1,3 +1,5 @@
+import aboutImg from "../assets/about-image.png";
+
 export const About = () => (
   <section id="sobre" className="py-32 bg-white relative overflow-hidden">
     <div className="absolute top-0 right-0 w-1/3 h-full bg-[#F5F5F5] -z-10"></div>
@@ -6,10 +8,9 @@ export const About = () => (
         <div className="lg:w-1/2 relative">
           <div className="aspect-[4/5] overflow-hidden shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop" 
+              src={aboutImg} 
               alt="Serviços especializados" 
               className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-
             />
           </div>
           <div className="absolute -bottom-12 -right-12 w-72 h-72 border-[24px] border-white z-20 hidden md:block shadow-xl">
