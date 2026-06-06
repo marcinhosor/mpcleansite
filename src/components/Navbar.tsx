@@ -25,7 +25,7 @@ export const Navbar = () => {
           <img 
             src="/logo.png" 
             alt="MP Clean" 
-            className={`${isScrolled ? "h-20" : "h-32"} w-auto object-contain transition-all duration-500 group-hover:scale-105`}
+            className={`${isScrolled ? "h-24" : "h-40"} w-auto object-contain transition-all duration-500 group-hover:scale-110`}
           />
         </div>
 
