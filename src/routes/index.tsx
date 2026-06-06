@@ -16,10 +16,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "MP Clean | Higienização Premium de Estofados em Sorocaba" },
-      { name: "description", content: "Especialista em higienização profissional de estofados, colchões, tapetes e impermeabilização de alto padrão em Sorocaba e região." },
-      { property: "og:title", content: "MP Clean | Higienização Premium" },
-      { property: "og:description", content: "Limpeza profunda e impermeabilização de estofados com tecnologia profissional." },
+      { name: "description", content: "Especialistas em higienização premium de sofás, colchões, tapetes, cortinas e impermeabilização. Atendimento em Sorocaba, Votorantim, Porto Feliz e condomínios de alto padrão." },
+      { property: "og:title", content: "MP Clean | Higienização Premium de Estofados" },
+      { property: "og:description", content: "Limpeza profunda e impermeabilização de alto padrão em Sorocaba e região." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop" },
     ],
     scripts: [
       {

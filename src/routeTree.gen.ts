@@ -10,11 +10,45 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento-corporativo'
+import { Route as AreasAtendidasRouteImport } from './routes/areas-atendidas'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicosSofasRouteImport } from './routes/servicos.sofas'
+import { Route as ServicosPoltronasRouteImport } from './routes/servicos.poltronas'
+import { Route as ServicosImpermeabilizacaoRouteImport } from './routes/servicos.impermeabilizacao'
+import { Route as ServicosColchoesRouteImport } from './routes/servicos.colchoes'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AtendimentoCorporativoRoute = AtendimentoCorporativoRouteImport.update({
+  id: '/atendimento-corporativo',
+  path: '/atendimento-corporativo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasAtendidasRoute = AreasAtendidasRouteImport.update({
+  id: '/areas-atendidas',
+  path: '/areas-atendidas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,30 +56,117 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicosSofasRoute = ServicosSofasRouteImport.update({
+  id: '/sofas',
+  path: '/sofas',
+  getParentRoute: () => ServicosRoute,
+} as any)
+const ServicosPoltronasRoute = ServicosPoltronasRouteImport.update({
+  id: '/poltronas',
+  path: '/poltronas',
+  getParentRoute: () => ServicosRoute,
+} as any)
+const ServicosImpermeabilizacaoRoute =
+  ServicosImpermeabilizacaoRouteImport.update({
+    id: '/impermeabilizacao',
+    path: '/impermeabilizacao',
+    getParentRoute: () => ServicosRoute,
+  } as any)
+const ServicosColchoesRoute = ServicosColchoesRouteImport.update({
+  id: '/colchoes',
+  path: '/colchoes',
+  getParentRoute: () => ServicosRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areas-atendidas': typeof AreasAtendidasRoute
+  '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
+  '/blog': typeof BlogRoute
+  '/contato': typeof ContatoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/colchoes': typeof ServicosColchoesRoute
+  '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/poltronas': typeof ServicosPoltronasRoute
+  '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/areas-atendidas': typeof AreasAtendidasRoute
+  '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
+  '/blog': typeof BlogRoute
+  '/contato': typeof ContatoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/colchoes': typeof ServicosColchoesRoute
+  '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/poltronas': typeof ServicosPoltronasRoute
+  '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areas-atendidas': typeof AreasAtendidasRoute
+  '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
+  '/blog': typeof BlogRoute
+  '/contato': typeof ContatoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/colchoes': typeof ServicosColchoesRoute
+  '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/poltronas': typeof ServicosPoltronasRoute
+  '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/areas-atendidas'
+    | '/atendimento-corporativo'
+    | '/blog'
+    | '/contato'
+    | '/servicos'
+    | '/sitemap.xml'
+    | '/servicos/colchoes'
+    | '/servicos/impermeabilizacao'
+    | '/servicos/poltronas'
+    | '/servicos/sofas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/areas-atendidas'
+    | '/atendimento-corporativo'
+    | '/blog'
+    | '/contato'
+    | '/servicos'
+    | '/sitemap.xml'
+    | '/servicos/colchoes'
+    | '/servicos/impermeabilizacao'
+    | '/servicos/poltronas'
+    | '/servicos/sofas'
+  id:
+    | '__root__'
+    | '/'
+    | '/areas-atendidas'
+    | '/atendimento-corporativo'
+    | '/blog'
+    | '/contato'
+    | '/servicos'
+    | '/sitemap.xml'
+    | '/servicos/colchoes'
+    | '/servicos/impermeabilizacao'
+    | '/servicos/poltronas'
+    | '/servicos/sofas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreasAtendidasRoute: typeof AreasAtendidasRoute
+  AtendimentoCorporativoRoute: typeof AtendimentoCorporativoRoute
+  BlogRoute: typeof BlogRoute
+  ContatoRoute: typeof ContatoRoute
+  ServicosRoute: typeof ServicosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -58,6 +179,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atendimento-corporativo': {
+      id: '/atendimento-corporativo'
+      path: '/atendimento-corporativo'
+      fullPath: '/atendimento-corporativo'
+      preLoaderRoute: typeof AtendimentoCorporativoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-atendidas': {
+      id: '/areas-atendidas'
+      path: '/areas-atendidas'
+      fullPath: '/areas-atendidas'
+      preLoaderRoute: typeof AreasAtendidasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,23 +221,64 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos/sofas': {
+      id: '/servicos/sofas'
+      path: '/sofas'
+      fullPath: '/servicos/sofas'
+      preLoaderRoute: typeof ServicosSofasRouteImport
+      parentRoute: typeof ServicosRoute
+    }
+    '/servicos/poltronas': {
+      id: '/servicos/poltronas'
+      path: '/poltronas'
+      fullPath: '/servicos/poltronas'
+      preLoaderRoute: typeof ServicosPoltronasRouteImport
+      parentRoute: typeof ServicosRoute
+    }
+    '/servicos/impermeabilizacao': {
+      id: '/servicos/impermeabilizacao'
+      path: '/impermeabilizacao'
+      fullPath: '/servicos/impermeabilizacao'
+      preLoaderRoute: typeof ServicosImpermeabilizacaoRouteImport
+      parentRoute: typeof ServicosRoute
+    }
+    '/servicos/colchoes': {
+      id: '/servicos/colchoes'
+      path: '/colchoes'
+      fullPath: '/servicos/colchoes'
+      preLoaderRoute: typeof ServicosColchoesRouteImport
+      parentRoute: typeof ServicosRoute
+    }
   }
 }
 
+interface ServicosRouteChildren {
+  ServicosColchoesRoute: typeof ServicosColchoesRoute
+  ServicosImpermeabilizacaoRoute: typeof ServicosImpermeabilizacaoRoute
+  ServicosPoltronasRoute: typeof ServicosPoltronasRoute
+  ServicosSofasRoute: typeof ServicosSofasRoute
+}
+
+const ServicosRouteChildren: ServicosRouteChildren = {
+  ServicosColchoesRoute: ServicosColchoesRoute,
+  ServicosImpermeabilizacaoRoute: ServicosImpermeabilizacaoRoute,
+  ServicosPoltronasRoute: ServicosPoltronasRoute,
+  ServicosSofasRoute: ServicosSofasRoute,
+}
+
+const ServicosRouteWithChildren = ServicosRoute._addFileChildren(
+  ServicosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreasAtendidasRoute: AreasAtendidasRoute,
+  AtendimentoCorporativoRoute: AtendimentoCorporativoRoute,
+  BlogRoute: BlogRoute,
+  ContatoRoute: ContatoRoute,
+  ServicosRoute: ServicosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
