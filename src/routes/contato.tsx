@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { Mail, Phone, MapPinned, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPinned, Camera } from 'lucide-react';
 
 export const Route = createFileRoute('/contato')({
   component: () => (
@@ -40,7 +40,7 @@ export const Route = createFileRoute('/contato')({
 
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 bg-gray-50 flex items-center justify-center text-[#C9A34E]">
-                    <Instagram size={24} />
+                    <Camera size={24} />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Siga-nos</p>
