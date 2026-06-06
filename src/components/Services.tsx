@@ -1,13 +1,13 @@
-import { Sofa, Armchair, Bed, Square, Curtain, Chair, Shield } from "lucide-react";
+import { Sofa, Armchair, Bed, Grid, Layers, Shield, Square } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   { icon: Sofa, title: "Sofás" },
   { icon: Armchair, title: "Poltronas" },
   { icon: Bed, title: "Colchões" },
-  { icon: Square, title: "Tapetes" },
-  { icon: Curtain, title: "Cortinas" },
-  { icon: Chair, title: "Cadeiras" },
+  { icon: Grid, title: "Tapetes" },
+  { icon: Layers, title: "Cortinas" },
+  { icon: Armchair, title: "Cadeiras" },
   { icon: Shield, title: "Impermeabilização" },
 ];
 
