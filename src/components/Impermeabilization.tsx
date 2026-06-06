@@ -40,7 +40,7 @@ export const Impermeabilization = () => (
         <div className="lg:w-1/2 relative">
           <div className="relative z-10 p-4 bg-white shadow-2xl border border-gray-100">
             <img 
-              src="https://images.unsplash.com/photo-1549493597-1df9557f92e1?q=80&w=2070&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=2060&auto=format&fit=crop" 
               alt="Proteção invisível para estofados" 
               className="w-full grayscale hover:grayscale-0 transition-all duration-1000"
             />
