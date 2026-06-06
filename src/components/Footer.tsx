@@ -9,7 +9,7 @@ export const Footer = () => (
             <img 
               src="/logo.png" 
               alt="MP Clean" 
-              className="h-20 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
           </div>
           <p className="text-gray-500 font-sans font-light text-lg leading-relaxed max-w-sm">

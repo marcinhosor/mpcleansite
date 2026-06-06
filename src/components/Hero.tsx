@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => (
-  <section className="relative min-h-[90vh] flex items-center justify-start overflow-hidden pt-20">
+  <section className="relative min-h-screen flex items-center justify-start overflow-hidden pt-20">
     <div 
       className="absolute inset-0 bg-cover bg-fixed bg-center bg-no-repeat"
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop')" }}
