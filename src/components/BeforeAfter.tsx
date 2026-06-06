@@ -19,7 +19,7 @@ export const BeforeAfter = () => (
           </div>
           
           <p className="text-gray-500 font-sans font-light text-lg leading-relaxed max-w-lg">
-            Nossa galeria de resultados traduz o compromisso da MP Clean com a excelência técnica. Mais do que higienizar, restauramos a dignidade e o esplendor original do seu patrimônio mobiliário.
+            Os resultados apresentados refletem nossa filosofia de trabalho: preservar o que tem valor. Por meio de técnicas especializadas e atenção aos detalhes, contribuímos para a conservação da estética, do conforto e da durabilidade de estofados que fazem parte de ambientes cuidadosamente projetados.
           </p>
           
           <div className="pt-8 border-t border-gray-100 max-w-sm">
