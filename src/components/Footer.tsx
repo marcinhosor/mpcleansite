@@ -5,11 +5,12 @@ export const Footer = () => (
     <div className="container px-6 relative z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
         <div className="lg:col-span-1 space-y-10">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 border border-[#C9A34E] flex items-center justify-center">
-              <span className="text-[#C9A34E] font-serif text-2xl font-bold">MP</span>
-            </div>
-            <span className="font-serif text-3xl font-light tracking-[0.4em]">CLEAN</span>
+          <div className="flex items-center">
+            <img 
+              src="/logo.png" 
+              alt="MP Clean" 
+              className="h-28 w-auto object-contain"
+            />
           </div>
           <p className="text-gray-500 font-sans font-light text-lg leading-relaxed max-w-sm">
             MP Clean — Mais do que limpeza, uma experiência de cuidado e preservação para ambientes de alto padrão.

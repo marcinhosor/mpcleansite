@@ -21,14 +21,12 @@ export const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? "bg-black/95 py-4 border-b border-[#C9A34E]/20 backdrop-blur-md" : "bg-transparent py-10"}`}>
       <div className="container px-6 md:px-12 flex justify-between items-center">
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.location.href = '/'}>
-          <div className="w-12 h-12 border border-[#C9A34E] flex items-center justify-center group-hover:bg-[#C9A34E] transition-all duration-500">
-            <span className="text-[#C9A34E] group-hover:text-black font-serif text-2xl font-bold">MP</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-2xl text-white font-light tracking-[0.4em] leading-none">CLEAN</span>
-            <span className="text-[#C9A34E] text-[8px] uppercase tracking-[0.5em] mt-1">Boutique</span>
-          </div>
+        <div className="flex items-center cursor-pointer group" onClick={() => window.location.href = '/'}>
+          <img 
+            src="/logo.png" 
+            alt="MP Clean" 
+            className={`${isScrolled ? "h-14" : "h-20"} w-auto object-contain transition-all duration-500 group-hover:scale-105`}
+          />
         </div>
 
         <div className="hidden lg:flex gap-12 items-center text-white/70 font-sans text-[10px] tracking-[0.4em] uppercase font-bold">
