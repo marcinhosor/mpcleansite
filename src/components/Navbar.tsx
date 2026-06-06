@@ -14,7 +14,7 @@ export const Navbar = () => {
     { label: "O Manifesto", href: "#sobre" },
     { label: "Serviços", href: "#servicos" },
     { label: "Diferenciais", href: "#diferenciais" },
-    { label: "Blindagem", href: "#impermeabilizacao" },
+    { label: "Impermeabilização Premium", href: "#impermeabilizacao" },
     { label: "B2B", href: "#corporativo" },
   ];
 
