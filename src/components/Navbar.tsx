@@ -10,32 +10,44 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: "O Manifesto", href: "#sobre" },
+    { label: "Serviços", href: "#servicos" },
+    { label: "Diferenciais", href: "#diferenciais" },
+    { label: "Blindagem", href: "#impermeabilizacao" },
+    { label: "B2B", href: "#corporativo" },
+  ];
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-black/95 py-4 border-b border-[#C9A34E]/20" : "bg-transparent py-8"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? "bg-black/95 py-4 border-b border-[#C9A34E]/20 backdrop-blur-md" : "bg-transparent py-10"}`}>
       <div className="container px-6 md:px-12 flex justify-between items-center">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '/'}>
-          <div className="w-10 h-10 border border-[#C9A34E] flex items-center justify-center">
-            <span className="text-[#C9A34E] font-serif text-xl font-bold">MP</span>
+        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.location.href = '/'}>
+          <div className="w-12 h-12 border border-[#C9A34E] flex items-center justify-center group-hover:bg-[#C9A34E] transition-all duration-500">
+            <span className="text-[#C9A34E] group-hover:text-black font-serif text-2xl font-bold">MP</span>
           </div>
-          <span className="font-serif text-2xl text-white font-light tracking-[0.3em] ml-2">CLEAN</span>
+          <div className="flex flex-col">
+            <span className="font-serif text-2xl text-white font-light tracking-[0.4em] leading-none">CLEAN</span>
+            <span className="text-[#C9A34E] text-[8px] uppercase tracking-[0.5em] mt-1">Boutique</span>
+          </div>
         </div>
-        <div className="hidden lg:flex gap-10 items-center text-white/80 font-sans text-[11px] tracking-[0.3em] uppercase">
-          <a href="/servicos/sofas" className="hover:text-[#C9A34E] transition-all">Serviços</a>
-          <a href="/atendimento-corporativo" className="hover:text-[#C9A34E] transition-all">Corporativo</a>
-          <a href="/areas-atendidas" className="hover:text-[#C9A34E] transition-all">Cidades</a>
-          <a href="/blog" className="hover:text-[#C9A34E] transition-all">Blog</a>
-          <a href="/contato" className="hover:text-[#C9A34E] transition-all">Contato</a>
+
+        <div className="hidden lg:flex gap-12 items-center text-white/70 font-sans text-[10px] tracking-[0.4em] uppercase font-bold">
+          {navLinks.map((link) => (
+            <a key={link.label} href={link.href} className="hover:text-[#C9A34E] transition-all hover:tracking-[0.6em] duration-500">
+              {link.label}
+            </a>
+          ))}
           <Button 
-            className="bg-[#C9A34E] hover:bg-white text-black rounded-none px-8 py-6 text-[10px] tracking-[0.3em] font-bold border border-[#C9A34E] transition-all"
-            onClick={() => window.open("https://wa.me/5515988064494", "_blank")}
+            className="bg-[#C9A34E] hover:bg-white text-black rounded-none px-10 py-7 text-[10px] tracking-[0.3em] font-black border border-[#C9A34E] transition-all"
+            onClick={() => window.open("https://wa.me/5515988064494?text=Olá%20MP%20Clean!%20Gostaria%20de%20uma%20avaliação%20especializada.", "_blank")}
           >
-            ORÇAMENTO
+            AVALIAÇÃO
           </Button>
         </div>
-        <button className="lg:hidden text-white p-2">
-          <div className="w-6 h-[1px] bg-[#C9A34E] mb-1"></div>
-          <div className="w-6 h-[1px] bg-[#C9A34E] mb-1"></div>
-          <div className="w-4 h-[1px] bg-[#C9A34E] ml-auto"></div>
+
+        <button className="lg:hidden text-[#C9A34E] p-2 flex flex-col gap-1.5 items-end">
+          <div className="w-8 h-[1px] bg-[#C9A34E]"></div>
+          <div className="w-5 h-[1px] bg-[#C9A34E]"></div>
         </button>
       </div>
     </nav>
