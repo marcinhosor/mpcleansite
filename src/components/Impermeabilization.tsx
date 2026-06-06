@@ -1,4 +1,4 @@
-import { Droplets, Coffee, Wine, GlassWater } from "lucide-react";
+import { Droplets, Coffee, Wine, GlassWater, Shield } from "lucide-react";
 
 export const Impermeabilization = () => (
   <section className="py-32 bg-[#FDFDFD] overflow-hidden">
