@@ -50,8 +50,8 @@ export const Services = () => (
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12">
         <div className="max-w-2xl">
           <span className="text-[#C9A34E] text-xs font-sans tracking-[0.5em] uppercase mb-6 block">Especialidades</span>
-          <h2 className="text-4xl md:text-7xl font-serif text-white leading-tight">
-            Serviços <span className="italic">Tailor-made</span>
+          <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight">
+            Conservação Sob Medida para <span className="italic italic-no-shimmer">Estofados de Alto Padrão</span>
           </h2>
         </div>
         <div className="max-w-xs">
