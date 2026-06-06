@@ -10,11 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento-corporativo'
+import { Route as AreasAtendidasRouteImport } from './routes/areas-atendidas'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicosSofasRouteImport } from './routes/servicos.sofas'
+import { Route as ServicosImpermeabilizacaoRouteImport } from './routes/servicos.impermeabilizacao'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AtendimentoCorporativoRoute = AtendimentoCorporativoRouteImport.update({
+  id: '/atendimento-corporativo',
+  path: '/atendimento-corporativo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasAtendidasRoute = AreasAtendidasRouteImport.update({
+  id: '/areas-atendidas',
+  path: '/areas-atendidas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,30 +54,95 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicosSofasRoute = ServicosSofasRouteImport.update({
+  id: '/sofas',
+  path: '/sofas',
+  getParentRoute: () => ServicosRoute,
+} as any)
+const ServicosImpermeabilizacaoRoute =
+  ServicosImpermeabilizacaoRouteImport.update({
+    id: '/impermeabilizacao',
+    path: '/impermeabilizacao',
+    getParentRoute: () => ServicosRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areas-atendidas': typeof AreasAtendidasRoute
+  '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
+  '/blog': typeof BlogRoute
+  '/contato': typeof ContatoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/areas-atendidas': typeof AreasAtendidasRoute
+  '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
+  '/blog': typeof BlogRoute
+  '/contato': typeof ContatoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areas-atendidas': typeof AreasAtendidasRoute
+  '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
+  '/blog': typeof BlogRoute
+  '/contato': typeof ContatoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
+  '/servicos/sofas': typeof ServicosSofasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/areas-atendidas'
+    | '/atendimento-corporativo'
+    | '/blog'
+    | '/contato'
+    | '/servicos'
+    | '/sitemap.xml'
+    | '/servicos/impermeabilizacao'
+    | '/servicos/sofas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/areas-atendidas'
+    | '/atendimento-corporativo'
+    | '/blog'
+    | '/contato'
+    | '/servicos'
+    | '/sitemap.xml'
+    | '/servicos/impermeabilizacao'
+    | '/servicos/sofas'
+  id:
+    | '__root__'
+    | '/'
+    | '/areas-atendidas'
+    | '/atendimento-corporativo'
+    | '/blog'
+    | '/contato'
+    | '/servicos'
+    | '/sitemap.xml'
+    | '/servicos/impermeabilizacao'
+    | '/servicos/sofas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreasAtendidasRoute: typeof AreasAtendidasRoute
+  AtendimentoCorporativoRoute: typeof AtendimentoCorporativoRoute
+  BlogRoute: typeof BlogRoute
+  ContatoRoute: typeof ContatoRoute
+  ServicosRoute: typeof ServicosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -58,6 +155,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atendimento-corporativo': {
+      id: '/atendimento-corporativo'
+      path: '/atendimento-corporativo'
+      fullPath: '/atendimento-corporativo'
+      preLoaderRoute: typeof AtendimentoCorporativoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-atendidas': {
+      id: '/areas-atendidas'
+      path: '/areas-atendidas'
+      fullPath: '/areas-atendidas'
+      preLoaderRoute: typeof AreasAtendidasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,11 +197,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos/sofas': {
+      id: '/servicos/sofas'
+      path: '/sofas'
+      fullPath: '/servicos/sofas'
+      preLoaderRoute: typeof ServicosSofasRouteImport
+      parentRoute: typeof ServicosRoute
+    }
+    '/servicos/impermeabilizacao': {
+      id: '/servicos/impermeabilizacao'
+      path: '/impermeabilizacao'
+      fullPath: '/servicos/impermeabilizacao'
+      preLoaderRoute: typeof ServicosImpermeabilizacaoRouteImport
+      parentRoute: typeof ServicosRoute
+    }
   }
 }
 
+interface ServicosRouteChildren {
+  ServicosImpermeabilizacaoRoute: typeof ServicosImpermeabilizacaoRoute
+  ServicosSofasRoute: typeof ServicosSofasRoute
+}
+
+const ServicosRouteChildren: ServicosRouteChildren = {
+  ServicosImpermeabilizacaoRoute: ServicosImpermeabilizacaoRoute,
+  ServicosSofasRoute: ServicosSofasRoute,
+}
+
+const ServicosRouteWithChildren = ServicosRoute._addFileChildren(
+  ServicosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreasAtendidasRoute: AreasAtendidasRoute,
+  AtendimentoCorporativoRoute: AtendimentoCorporativoRoute,
+  BlogRoute: BlogRoute,
+  ContatoRoute: ContatoRoute,
+  ServicosRoute: ServicosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
