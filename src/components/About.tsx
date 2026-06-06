@@ -7,13 +7,14 @@ export const About = () => (
           <div className="aspect-[4/5] overflow-hidden shadow-2xl">
             <img 
               src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop" 
-              alt="Uma boutique de serviços especializados" 
+              alt="Serviços especializados" 
               className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+
             />
           </div>
           <div className="absolute -bottom-12 -right-12 w-72 h-72 border-[24px] border-white z-20 hidden md:block shadow-xl">
             <div className="w-full h-full bg-[#0A0A0A] p-10 flex flex-col justify-center text-white border border-[#C9A34E]/20">
-              <span className="text-[#C9A34E] text-[10px] uppercase tracking-[0.4em] mb-4 font-sans">Boutique</span>
+              <span className="text-[#C9A34E] text-[10px] uppercase tracking-[0.4em] mb-4 font-sans">Especialista</span>
               <span className="text-3xl font-serif mb-2 italic">MP Clean</span>
               <span className="text-[10px] uppercase tracking-widest font-sans text-gray-400">Excelência em cada detalhe</span>
             </div>
