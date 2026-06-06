@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mpclean.com.br/sitemap.xml

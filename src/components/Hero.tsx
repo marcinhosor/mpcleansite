@@ -17,10 +17,19 @@ export const Hero = () => (
         Removemos sujeiras profundas, ácaros, odores e microrganismos com tecnologia profissional e acabamento impecável.
       </p>
       <div className="flex flex-col md:flex-row gap-4 justify-center">
-        <Button size="lg" className="bg-[#C9A34E] hover:bg-[#b08e42] text-black font-semibold text-lg px-8 py-6 uppercase tracking-wider">
+        <Button 
+          size="lg" 
+          className="bg-[#C9A34E] hover:bg-[#b08e42] text-black font-semibold text-lg px-8 py-6 uppercase tracking-wider rounded-none"
+          onClick={() => window.open("https://wa.me/5515988064494", "_blank")}
+        >
           Solicitar Orçamento
         </Button>
-        <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-black font-semibold text-lg px-8 py-6 uppercase tracking-wider">
+        <Button 
+          size="lg" 
+          variant="outline" 
+          className="bg-transparent text-white border-white hover:bg-white hover:text-black font-semibold text-lg px-8 py-6 uppercase tracking-wider rounded-none"
+          onClick={() => window.open("https://wa.me/5515988064494", "_blank")}
+        >
           Falar no WhatsApp
         </Button>
       </div>
