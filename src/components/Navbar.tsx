@@ -19,13 +19,13 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? "bg-black/95 py-4 border-b border-[#C9A34E]/20 backdrop-blur-md" : "bg-transparent py-10"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? "bg-black/95 py-3 border-b border-[#C9A34E]/20 backdrop-blur-md" : "bg-transparent py-6"}`}>
       <div className="container px-6 md:px-12 flex justify-between items-center">
         <div className="flex items-center cursor-pointer group" onClick={() => window.location.href = '/'}>
           <img 
             src="/logo.png" 
             alt="MP Clean" 
-            className={`${isScrolled ? "h-24" : "h-40"} w-auto object-contain transition-all duration-500 group-hover:scale-110`}
+            className={`${isScrolled ? "h-16" : "h-24"} w-auto object-contain transition-all duration-500 group-hover:scale-105`}
           />
         </div>
 
