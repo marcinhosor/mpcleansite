@@ -1,45 +1,63 @@
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
 export const BeforeAfter = () => (
-  <section className="py-32 bg-white">
-    <div className="container px-6">
-      <div className="flex flex-col md:flex-row items-center gap-16">
-        <div className="flex-1 space-y-8">
-          <span className="text-[#C9A34E] text-xs font-sans tracking-[0.4em] uppercase block">Resultados Surpreendentes</span>
-          <h2 className="text-4xl md:text-6xl font-serif text-[#0A0A0A] leading-tight">
-            O impacto visual do <span className="italic">padrão premium</span>
-          </h2>
+  <section className="py-32 bg-white relative overflow-hidden">
+    {/* Background text decoration */}
+    <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 opacity-[0.02] pointer-events-none hidden lg:block">
+      <span className="font-serif text-[30rem] leading-none whitespace-nowrap">PREMIUM</span>
+    </div>
+    
+    <div className="container px-6 relative z-10">
+      <div className="flex flex-col lg:flex-row items-center gap-24">
+        <div className="flex-1 space-y-10 order-2 lg:order-1">
+          <div className="space-y-6">
+            <span className="text-[#C9A34E] text-xs font-sans tracking-[0.5em] uppercase block">Resultados</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-[#0A0A0A] leading-tight">
+              A estética da <br /><span className="italic">perfeição.</span>
+            </h2>
+            <div className="w-20 h-[1px] bg-[#C9A34E]"></div>
+          </div>
+          
           <p className="text-gray-500 font-sans font-light text-lg leading-relaxed max-w-lg">
-            Nossa tecnologia de extração profunda remove anos de sujidade, devolvendo a cor original e o toque nobre aos seus tecidos.
+            Nossa galeria de resultados traduz o compromisso da MP Clean com a excelência técnica. Mais do que higienizar, restauramos a dignidade e o esplendor original do seu patrimônio mobiliário.
           </p>
-          <div className="pt-8">
-            <div className="flex items-center gap-6">
-              <div className="text-center">
-                <span className="block text-3xl font-serif text-[#0A0A0A]">100%</span>
-                <span className="text-[10px] text-[#C9A34E] uppercase tracking-widest font-sans">Eficácia</span>
+          
+          <div className="pt-8 border-t border-gray-100 max-w-sm">
+            <div className="grid grid-cols-2 gap-10">
+              <div className="space-y-1">
+                <span className="block text-4xl font-serif text-[#0A0A0A]">100%</span>
+                <span className="text-[10px] text-[#C9A34E] uppercase tracking-[0.4em] font-sans font-bold">Eficácia</span>
               </div>
-              <div className="w-[1px] h-12 bg-gray-200"></div>
-              <div className="text-center">
-                <span className="block text-3xl font-serif text-[#0A0A0A]">Higienizado</span>
-                <span className="text-[10px] text-[#C9A34E] uppercase tracking-widest font-sans">Profundamente</span>
+              <div className="space-y-1">
+                <span className="block text-4xl font-serif text-[#0A0A0A]">Bio</span>
+                <span className="text-[10px] text-[#C9A34E] uppercase tracking-[0.4em] font-sans font-bold">Sustentável</span>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="flex-1 w-full">
-          <div className="relative p-2 border border-gray-100 bg-white shadow-2xl">
+        <div className="flex-1 w-full order-1 lg:order-2">
+          <div className="relative p-3 bg-[#F5F5F5] shadow-[0_30px_60px_rgba(0,0,0,0.1)] border border-gray-100 group">
             <ReactCompareSlider
-              itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop" alt="Antes" />}
+              itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop" alt="Antes" className="grayscale" />}
               itemTwo={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=2070&auto=format&fit=crop" alt="Depois" />}
-              style={{ height: '500px', width: '100%' }}
-              handle={<div className="w-10 h-10 bg-[#C9A34E] rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-              </div>}
+              style={{ height: '550px', width: '100%' }}
+              handle={
+                <div className="w-12 h-12 bg-[#0A0A0A] border border-[#C9A34E] flex items-center justify-center text-[#C9A34E] shadow-2xl">
+                  <div className="flex flex-col gap-1 items-center">
+                    <div className="w-4 h-[1px] bg-[#C9A34E]"></div>
+                    <div className="w-2 h-[1px] bg-[#C9A34E]"></div>
+                  </div>
+                </div>
+              }
             />
-            <div className="absolute bottom-6 left-6 px-4 py-2 bg-black/50 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.2em] font-sans">Antes</div>
-            <div className="absolute bottom-6 right-6 px-4 py-2 bg-[#C9A34E]/80 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.2em] font-sans font-bold">Depois</div>
+            <div className="absolute top-8 left-8 px-6 py-2 bg-[#0A0A0A]/80 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.4em] font-sans border border-white/10">Preservação</div>
+            <div className="absolute bottom-8 right-8 px-6 py-2 bg-[#C9A34E]/90 backdrop-blur-md text-black text-[10px] uppercase tracking-[0.4em] font-sans font-black">Excelência</div>
+            
+            {/* Minimal label overlay */}
+            <div className="absolute inset-x-0 bottom-0 py-6 text-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <span className="text-[10px] text-black/40 uppercase tracking-[0.6em] font-bold">Deslize para comparar</span>
+            </div>
           </div>
         </div>
       </div>

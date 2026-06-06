@@ -1,44 +1,58 @@
-import { Building2, CheckCircle } from "lucide-react";
+import { Building2, Hotel, Landmark, Hospital, PenTool, Castle, Briefcase } from "lucide-react";
+
+const corporateSectors = [
+  { icon: Castle, label: "Residências de alto padrão" },
+  { icon: Landmark, label: "Casas de campo e Condomínios" },
+  { icon: Hotel, label: "Hotéis e Pousadas Boutique" },
+  { icon: Hospital, label: "Clínicas Premium" },
+  { icon: Briefcase, label: "Escritórios Corporativos" },
+  { icon: PenTool, label: "Parcerias com Arquitetos" },
+];
 
 export const Corporate = () => (
-  <section className="py-32 bg-[#080808] relative overflow-hidden">
-    <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+  <section id="corporativo" className="py-32 bg-[#0A0A0A] relative overflow-hidden">
+    <div className="absolute inset-0 opacity-[0.15] pointer-events-none">
       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Corporate" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-l from-black via-black/80 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]"></div>
     </div>
     
     <div className="container px-6 relative z-10">
-      <div className="max-w-3xl">
-        <div className="inline-flex items-center gap-4 mb-8">
-          <div className="w-12 h-[1px] bg-[#C9A34E]"></div>
-          <span className="text-[#C9A34E] text-xs font-sans tracking-[0.4em] uppercase">B2B Excellence</span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div>
+          <div className="inline-flex items-center gap-4 mb-8">
+            <div className="w-12 h-[1px] bg-[#C9A34E]"></div>
+            <span className="text-[#C9A34E] text-xs font-sans tracking-[0.5em] uppercase">Especialização</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-6xl font-serif text-white leading-[1.1] mb-8">
+            Atendimento para <br /> ambientes que <br /> <span className="italic">exigem excelência.</span>
+          </h2>
+          
+          <p className="text-xl text-gray-400 mb-16 font-sans font-light leading-relaxed tracking-wide max-w-lg">
+            A MP Clean é a parceira estratégica de quem compreende que a manutenção de ambientes sofisticados requer processos especializados e absoluta discrição.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            {corporateSectors.map((sector, i) => (
+              <div key={i} className="flex items-center gap-6 group">
+                <div className="w-12 h-12 border border-white/10 flex items-center justify-center text-[#C9A34E] group-hover:border-[#C9A34E] group-hover:bg-[#C9A34E]/5 transition-all duration-500">
+                  <sector.icon size={20} strokeWidth={1} />
+                </div>
+                <span className="text-sm font-serif text-white tracking-widest">{sector.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
         
-        <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight mb-8">
-          Soluções Corporativas para <br /> <span className="italic">Ambientes de Prestígio</span>
-        </h2>
-        
-        <p className="text-xl text-gray-400 mb-16 font-sans font-light leading-relaxed tracking-wide">
-          Atendimento especializado para Hotéis Boutique, Condomínios de Luxo, Clínicas de Estética e Escritórios de Alto Padrão em Sorocaba e região.
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {[
-            { title: "Padronização", desc: "Processos rigorosos que garantem o mesmo nível de excelência em todas as unidades." },
-            { title: "Qualidade Premium", desc: "Produtos de linha profissional que não agridem os materiais nem a saúde." },
-            { title: "Confiabilidade", desc: "Equipe uniformizada, treinada e com histórico verificado." },
-            { title: "Agilidade", desc: "Cronogramas flexíveis que não interferem na sua operação comercial." }
-          ].map((item, i) => (
-            <div key={i} className="flex gap-6 group">
-              <div className="flex-shrink-0 w-6 h-6 border border-[#C9A34E] flex items-center justify-center mt-1 group-hover:bg-[#C9A34E] transition-all duration-500">
-                <div className="w-1 h-1 bg-white"></div>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-serif text-xl text-white group-hover:text-[#C9A34E] transition-colors">{item.title}</h4>
-                <p className="text-sm text-gray-500 font-light leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
-          ))}
+        <div className="relative group hidden lg:block">
+          <div className="aspect-square overflow-hidden border border-white/10">
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+              alt="Ambiente Corporativo de Luxo" 
+              className="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
+            />
+          </div>
+          <div className="absolute inset-0 border border-[#C9A34E]/30 translate-x-8 translate-y-8 -z-10 group-hover:translate-x-4 group-hover:translate-y-4 transition-all duration-700"></div>
         </div>
       </div>
     </div>
