@@ -1,4 +1,5 @@
 import { Droplets, Shield, Sparkles, Wind } from "lucide-react";
+import waterproofingImg from "../assets/waterproofing-premium.png";
 
 export const Impermeabilization = () => (
   <section id="impermeabilizacao" className="py-32 bg-[#F9F9F9] overflow-hidden">
@@ -40,7 +41,7 @@ export const Impermeabilization = () => (
         <div className="lg:w-1/2 relative">
           <div className="relative z-10 p-4 bg-white shadow-2xl border border-gray-100">
             <img 
-              src="/src/assets/waterproofing-premium.png" 
+              src={waterproofingImg} 
               alt="Proteção invisível para estofados" 
               className="w-full transition-all duration-1000"
             />
