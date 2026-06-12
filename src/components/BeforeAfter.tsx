@@ -47,10 +47,14 @@ export const BeforeAfter = () => (
               itemTwo={<ReactCompareSliderImage src={resultsAfter} alt="Depois" />}
               style={{ height: '550px', width: '100%' }}
               handle={
-                <div className="w-12 h-12 bg-[#0A0A0A] border border-[#C9A34E] flex items-center justify-center text-[#C9A34E] shadow-2xl">
+                <div className="w-12 h-12 bg-[#0A0A0A] border border-[#C9A34E] flex items-center justify-center text-[#C9A34E] shadow-2xl hover:scale-110 transition-transform cursor-grab active:cursor-grabbing relative">
                   <div className="flex flex-col gap-1 items-center">
                     <div className="w-4 h-[1px] bg-[#C9A34E]"></div>
                     <div className="w-2 h-[1px] bg-[#C9A34E]"></div>
+                  </div>
+                  {/* Interaction hint for the handle */}
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center">
+                    <span className="text-[10px] text-[#0A0A0A] bg-[#C9A34E] px-2 py-1 whitespace-nowrap font-bold tracking-widest uppercase mb-1">Arraste</span>
                   </div>
                 </div>
               }
@@ -58,9 +62,14 @@ export const BeforeAfter = () => (
             <div className="absolute top-8 left-8 px-6 py-2 bg-[#0A0A0A]/80 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.4em] font-sans border border-white/10">Preservação</div>
             <div className="absolute bottom-8 right-8 px-6 py-2 bg-[#C9A34E]/90 backdrop-blur-md text-black text-[10px] uppercase tracking-[0.4em] font-sans font-black">Excelência</div>
             
-            {/* Minimal label overlay */}
-            <div className="absolute inset-x-0 bottom-0 py-6 text-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              <span className="text-[10px] text-black/40 uppercase tracking-[0.6em] font-bold">Deslize para comparar</span>
+            {/* Visual indicator for the slide area */}
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none flex justify-between px-10 opacity-40 group-hover:opacity-10 transition-opacity">
+              <div className="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center animate-pulse">
+                <span className="text-black text-xs">←</span>
+              </div>
+              <div className="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center animate-pulse">
+                <span className="text-black text-xs">→</span>
+              </div>
             </div>
           </div>
         </div>
