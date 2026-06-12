@@ -45,7 +45,7 @@ export const BeforeAfter = () => (
             <ReactCompareSlider
               itemOne={<ReactCompareSliderImage src={resultsBefore} alt="Antes" />}
               itemTwo={<ReactCompareSliderImage src={resultsAfter} alt="Depois" />}
-              style={{ height: '550px', width: '100%' }}
+              style={{ height: '550px', width: '100%', touchAction: 'pan-y' }}
               handle={
                 <div className="w-12 h-12 bg-[#0A0A0A] border border-[#C9A34E] flex items-center justify-center text-[#C9A34E] shadow-2xl hover:scale-110 transition-transform cursor-grab active:cursor-grabbing relative">
                   <div className="flex flex-col gap-1 items-center">
