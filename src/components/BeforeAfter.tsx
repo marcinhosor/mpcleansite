@@ -54,7 +54,7 @@ export const BeforeAfter = () => (
                   </div>
                   {/* Interaction hint for the handle */}
                   <div className="absolute -top-12 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center">
-                    <span className="text-[10px] text-[#0A0A0A] bg-[#C9A34E] px-2 py-1 whitespace-nowrap font-bold tracking-widest uppercase mb-1">Arraste</span>
+                    <span className="text-[10px] text-[#0A0A0A] bg-[#C9A34E] px-3 py-1.5 whitespace-nowrap font-bold tracking-widest uppercase mb-1 shadow-lg">Arraste</span>
                   </div>
                 </div>
               }
@@ -62,13 +62,20 @@ export const BeforeAfter = () => (
             <div className="absolute top-8 left-8 px-6 py-2 bg-[#0A0A0A]/80 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.4em] font-sans border border-white/10">Preservação</div>
             <div className="absolute bottom-8 right-8 px-6 py-2 bg-[#C9A34E]/90 backdrop-blur-md text-black text-[10px] uppercase tracking-[0.4em] font-sans font-black">Excelência</div>
             
-            {/* Visual indicator for the slide area */}
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none flex justify-between px-10 opacity-40 group-hover:opacity-10 transition-opacity">
-              <div className="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center animate-pulse">
-                <span className="text-black text-xs">←</span>
+            {/* Visual indicator for the slide area with the new text */}
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none flex justify-between items-center px-10">
+              <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center animate-pulse">
+                <span className="text-black text-lg">←</span>
               </div>
-              <div className="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center animate-pulse">
-                <span className="text-black text-xs">→</span>
+              
+              <div className="bg-[#0A0A0A]/60 backdrop-blur-md border border-white/10 px-4 py-2 opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                <p className="text-white text-[10px] uppercase tracking-[0.3em] font-light text-center leading-relaxed">
+                  Veja aqui a transformação que <br /> podemos fazer em seus estofados
+                </p>
+              </div>
+
+              <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center animate-pulse">
+                <span className="text-black text-lg">→</span>
               </div>
             </div>
           </div>
