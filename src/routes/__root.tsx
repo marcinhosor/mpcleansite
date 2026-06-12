@@ -81,10 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Especialistas em higienização e conservação de estofados, tapetes e colchões para ambientes de alto padrão em Sorocaba, Votorantim e região." },
       { name: "author", content: "MP Clean" },
       { property: "og:title", content: "MP Clean — Higienização e Conservação Premium" },
-      { property: "og:description", content: "Experiência de cuidado e preservação para ambientes de alto padrão." },
+      { property: "og:description", content: "Especialistas em higienização e conservação de estofados, tapetes e colchões para ambientes de alto padrão em Sorocaba, Votorantim e região." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "/logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "MP Clean — Higienização e Conservação Premium" },
+      { name: "twitter:description", content: "Especialistas em higienização e conservação de estofados, tapetes e colchões para ambientes de alto padrão em Sorocaba, Votorantim e região." },
+      { name: "twitter:image", content: "/logo.png" },
     ],
     links: [
       {
