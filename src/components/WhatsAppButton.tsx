@@ -2,11 +2,10 @@ import { MessageCircle } from "lucide-react";
 
 export const WhatsAppButton = () => {
   const handleClick = () => {
-    // Tracking event example
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'click', {
-        'event_category': 'WhatsApp',
-        'event_label': 'Floating Button'
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "click", {
+        event_category: "WhatsApp",
+        event_label: "Floating Button",
       });
     }
   };
