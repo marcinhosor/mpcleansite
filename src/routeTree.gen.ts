@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as LpRouteImport } from './routes/lp'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento-corporativo'
@@ -29,6 +30,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpRoute = LpRouteImport.update({
+  id: '/lp',
+  path: '/lp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
   '/blog': typeof BlogRoute
   '/contato': typeof ContatoRoute
+  '/lp': typeof LpRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/servicos/colchoes': typeof ServicosColchoesRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
   '/blog': typeof BlogRoute
   '/contato': typeof ContatoRoute
+  '/lp': typeof LpRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/servicos/colchoes': typeof ServicosColchoesRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
   '/blog': typeof BlogRoute
   '/contato': typeof ContatoRoute
+  '/lp': typeof LpRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/servicos/colchoes': typeof ServicosColchoesRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/atendimento-corporativo'
     | '/blog'
     | '/contato'
+    | '/lp'
     | '/servicos'
     | '/sitemap.xml'
     | '/servicos/colchoes'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/atendimento-corporativo'
     | '/blog'
     | '/contato'
+    | '/lp'
     | '/servicos'
     | '/sitemap.xml'
     | '/servicos/colchoes'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
     | '/atendimento-corporativo'
     | '/blog'
     | '/contato'
+    | '/lp'
     | '/servicos'
     | '/sitemap.xml'
     | '/servicos/colchoes'
@@ -166,6 +178,7 @@ export interface RootRouteChildren {
   AtendimentoCorporativoRoute: typeof AtendimentoCorporativoRoute
   BlogRoute: typeof BlogRoute
   ContatoRoute: typeof ContatoRoute
+  LpRoute: typeof LpRoute
   ServicosRoute: typeof ServicosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/servicos'
       preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp': {
+      id: '/lp'
+      path: '/lp'
+      fullPath: '/lp'
+      preLoaderRoute: typeof LpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -276,19 +296,10 @@ const rootRouteChildren: RootRouteChildren = {
   AtendimentoCorporativoRoute: AtendimentoCorporativoRoute,
   BlogRoute: BlogRoute,
   ContatoRoute: ContatoRoute,
+  LpRoute: LpRoute,
   ServicosRoute: ServicosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
