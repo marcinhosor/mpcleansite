@@ -517,7 +517,7 @@ function LandingPage() {
                 rel="noopener noreferrer"
                 className="mt-3 flex items-center gap-2 text-white/70 hover:text-white transition"
               >
-                <Instagram size={14} /> @mpclean
+                <Sparkles size={14} /> @mpclean
               </a>
             </div>
 
