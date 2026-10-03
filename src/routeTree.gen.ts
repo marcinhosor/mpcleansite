@@ -9,47 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicosRouteImport } from './routes/servicos'
-import { Route as LpRouteImport } from './routes/lp'
-import { Route as ContatoRouteImport } from './routes/contato'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento-corporativo'
-import { Route as AreasAtendidasRouteImport } from './routes/areas-atendidas'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicosSofasRouteImport } from './routes/servicos.sofas'
-import { Route as ServicosPoltronasRouteImport } from './routes/servicos.poltronas'
-import { Route as ServicosImpermeabilizacaoRouteImport } from './routes/servicos.impermeabilizacao'
+import { Route as AreasAtendidasRouteImport } from './routes/areas-atendidas'
+import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento-corporativo'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as LpRouteImport } from './routes/lp'
+import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosColchoesRouteImport } from './routes/servicos.colchoes'
+import { Route as ServicosImpermeabilizacaoRouteImport } from './routes/servicos.impermeabilizacao'
+import { Route as ServicosPoltronasRouteImport } from './routes/servicos.poltronas'
+import { Route as ServicosSofasRouteImport } from './routes/servicos.sofas'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicosRoute = ServicosRouteImport.update({
-  id: '/servicos',
-  path: '/servicos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpRoute = LpRouteImport.update({
-  id: '/lp',
-  path: '/lp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContatoRoute = ContatoRouteImport.update({
-  id: '/contato',
-  path: '/contato',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AtendimentoCorporativoRoute = AtendimentoCorporativoRouteImport.update({
-  id: '/atendimento-corporativo',
-  path: '/atendimento-corporativo',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AreasAtendidasRoute = AreasAtendidasRouteImport.update({
@@ -57,19 +32,39 @@ const AreasAtendidasRoute = AreasAtendidasRouteImport.update({
   path: '/areas-atendidas',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AtendimentoCorporativoRoute = AtendimentoCorporativoRouteImport.update({
+  id: '/atendimento-corporativo',
+  path: '/atendimento-corporativo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicosSofasRoute = ServicosSofasRouteImport.update({
-  id: '/sofas',
-  path: '/sofas',
-  getParentRoute: () => ServicosRoute,
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServicosPoltronasRoute = ServicosPoltronasRouteImport.update({
-  id: '/poltronas',
-  path: '/poltronas',
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpRoute = LpRouteImport.update({
+  id: '/lp',
+  path: '/lp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosColchoesRoute = ServicosColchoesRouteImport.update({
+  id: '/colchoes',
+  path: '/colchoes',
   getParentRoute: () => ServicosRoute,
 } as any)
 const ServicosImpermeabilizacaoRoute =
@@ -78,9 +73,14 @@ const ServicosImpermeabilizacaoRoute =
     path: '/impermeabilizacao',
     getParentRoute: () => ServicosRoute,
   } as any)
-const ServicosColchoesRoute = ServicosColchoesRouteImport.update({
-  id: '/colchoes',
-  path: '/colchoes',
+const ServicosPoltronasRoute = ServicosPoltronasRouteImport.update({
+  id: '/poltronas',
+  path: '/poltronas',
+  getParentRoute: () => ServicosRoute,
+} as any)
+const ServicosSofasRoute = ServicosSofasRouteImport.update({
+  id: '/sofas',
+  path: '/sofas',
   getParentRoute: () => ServicosRoute,
 } as any)
 
@@ -185,46 +185,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/servicos': {
-      id: '/servicos'
-      path: '/servicos'
-      fullPath: '/servicos'
-      preLoaderRoute: typeof ServicosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lp': {
-      id: '/lp'
-      path: '/lp'
-      fullPath: '/lp'
-      preLoaderRoute: typeof LpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contato': {
-      id: '/contato'
-      path: '/contato'
-      fullPath: '/contato'
-      preLoaderRoute: typeof ContatoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/atendimento-corporativo': {
-      id: '/atendimento-corporativo'
-      path: '/atendimento-corporativo'
-      fullPath: '/atendimento-corporativo'
-      preLoaderRoute: typeof AtendimentoCorporativoRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas-atendidas': {
@@ -234,25 +199,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AreasAtendidasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/atendimento-corporativo': {
+      id: '/atendimento-corporativo'
+      path: '/atendimento-corporativo'
+      fullPath: '/atendimento-corporativo'
+      preLoaderRoute: typeof AtendimentoCorporativoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/servicos/sofas': {
-      id: '/servicos/sofas'
-      path: '/sofas'
-      fullPath: '/servicos/sofas'
-      preLoaderRoute: typeof ServicosSofasRouteImport
-      parentRoute: typeof ServicosRoute
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/servicos/poltronas': {
-      id: '/servicos/poltronas'
-      path: '/poltronas'
-      fullPath: '/servicos/poltronas'
-      preLoaderRoute: typeof ServicosPoltronasRouteImport
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp': {
+      id: '/lp'
+      path: '/lp'
+      fullPath: '/lp'
+      preLoaderRoute: typeof LpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/colchoes': {
+      id: '/servicos/colchoes'
+      path: '/colchoes'
+      fullPath: '/servicos/colchoes'
+      preLoaderRoute: typeof ServicosColchoesRouteImport
       parentRoute: typeof ServicosRoute
     }
     '/servicos/impermeabilizacao': {
@@ -262,11 +255,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosImpermeabilizacaoRouteImport
       parentRoute: typeof ServicosRoute
     }
-    '/servicos/colchoes': {
-      id: '/servicos/colchoes'
-      path: '/colchoes'
-      fullPath: '/servicos/colchoes'
-      preLoaderRoute: typeof ServicosColchoesRouteImport
+    '/servicos/poltronas': {
+      id: '/servicos/poltronas'
+      path: '/poltronas'
+      fullPath: '/servicos/poltronas'
+      preLoaderRoute: typeof ServicosPoltronasRouteImport
+      parentRoute: typeof ServicosRoute
+    }
+    '/servicos/sofas': {
+      id: '/servicos/sofas'
+      path: '/sofas'
+      fullPath: '/servicos/sofas'
+      preLoaderRoute: typeof ServicosSofasRouteImport
       parentRoute: typeof ServicosRoute
     }
   }
@@ -303,3 +303,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
