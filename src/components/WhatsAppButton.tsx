@@ -1,8 +1,12 @@
-import { MessageCircle } from "lucide-react";
+﻿import { MessageCircle } from "lucide-react";
 
 export const WhatsAppButton = () => {
   const handleClick = () => {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-829588884/LIGXCMUJ6ZYdEJSLyosD",
+      });
+
       window.gtag("event", "click", {
         event_category: "WhatsApp",
         event_label: "Floating Button",
