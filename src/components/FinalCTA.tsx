@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL, reportWhatsAppConversion } from "@/lib/whatsapp";
 
 export const FinalCTA = () => (
-  <section className="py-40 bg-white relative overflow-hidden">
-    <div className="absolute inset-0 bg-[#0A0A0A]">
+  <section className="relative overflow-hidden bg-[#E7E1D6] py-40">
+    <div className="absolute inset-0 bg-[#DCD4C5]">
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-25"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop')",
@@ -13,7 +13,7 @@ export const FinalCTA = () => (
           backgroundPosition: "center",
         }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#E7E1D6]/95 via-[#E7E1D6]/80 to-[#E7E1D6]/40"></div>
     </div>
 
     <div className="container px-6 relative z-10 text-center">
@@ -22,10 +22,10 @@ export const FinalCTA = () => (
           <span className="text-[#C9A34E] text-xs font-sans tracking-[0.6em] uppercase block">
             Assessoria Técnica
           </span>
-          <h2 className="text-5xl md:text-8xl font-serif text-white leading-tight">
+          <h2 className="text-5xl font-serif leading-tight text-[#1C1B18] md:text-8xl">
             Solicite uma <br /> <span className="italic">avaliação especializada.</span>
           </h2>
-          <p className="text-xl text-gray-400 font-sans font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-2xl font-sans text-xl font-medium leading-relaxed tracking-wide text-[#514F49]">
             Receba orientação profissional para a conservação e proteção dos seus estofados.
             Atendimento personalizado para ambientes de alto padrão.
           </p>
@@ -44,10 +44,12 @@ export const FinalCTA = () => (
           </Button>
 
           <div className="flex flex-col items-center gap-4">
-            <span className="text-[10px] text-gray-500 uppercase tracking-[0.5em]">
+            <span className="text-[10px] uppercase tracking-[0.5em] text-[#625D53]">
               Central de Atendimento
             </span>
-            <span className="text-white font-serif text-2xl tracking-[0.2em]">(15) 98806-4494</span>
+            <span className="font-serif text-2xl tracking-[0.2em] text-[#1C1B18]">
+              (15) 98806-4494
+            </span>
           </div>
         </div>
       </div>

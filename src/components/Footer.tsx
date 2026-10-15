@@ -1,16 +1,16 @@
 import { WHATSAPP_URL, reportWhatsAppConversion } from "@/lib/whatsapp";
 
 export const Footer = () => (
-  <footer className="py-32 bg-[#0A0A0A] text-white relative overflow-hidden border-t border-white/5">
-    <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#C9A34E]/5 rounded-full blur-[150px] -mr-64 -mb-64"></div>
+  <footer className="relative overflow-hidden border-t border-[#C9A34E]/20 bg-[#24231F] py-32 text-[#F7F3EA]">
+    <div className="absolute -bottom-64 -right-64 h-[600px] w-[600px] rounded-full bg-[#C9A34E]/10 blur-[150px]" />
 
-    <div className="container px-6 relative z-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
-        <div className="lg:col-span-1 space-y-10">
+    <div className="container relative z-10 px-6">
+      <div className="mb-32 grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-10 lg:col-span-1">
           <div className="flex items-center">
             <img src="/logo.png" alt="MP Clean" className="h-28 w-auto object-contain" />
           </div>
-          <p className="text-gray-500 font-sans font-light text-lg leading-relaxed max-w-sm">
+          <p className="max-w-sm font-sans text-lg font-light leading-relaxed text-[#D6D1C6]">
             MP Clean — Mais do que limpeza, uma experiência de cuidado e preservação para ambientes
             de alto padrão.
           </p>
@@ -19,7 +19,7 @@ export const Footer = () => (
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] uppercase tracking-[0.3em] text-gray-400 hover:text-[#C9A34E] transition-colors border-b border-gray-800 pb-1"
+              className="border-b border-[#7B7569] pb-1 text-[10px] uppercase tracking-[0.3em] text-[#E2DDD2] transition-colors hover:text-[#E0B95D]"
             >
               Instagram
             </a>
@@ -28,7 +28,7 @@ export const Footer = () => (
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => reportWhatsAppConversion("Footer WhatsApp")}
-              className="text-[10px] uppercase tracking-[0.3em] text-gray-400 hover:text-[#C9A34E] transition-colors border-b border-gray-800 pb-1"
+              className="border-b border-[#7B7569] pb-1 text-[10px] uppercase tracking-[0.3em] text-[#E2DDD2] transition-colors hover:text-[#E0B95D]"
             >
               WhatsApp
             </a>
@@ -36,27 +36,39 @@ export const Footer = () => (
         </div>
 
         <div className="space-y-10">
-          <h4 className="text-[#C9A34E] text-xs font-sans tracking-[0.5em] uppercase">
+          <h4 className="text-xs font-sans uppercase tracking-[0.5em] text-[#E0B95D]">
             Especialidades
           </h4>
-          <ul className="space-y-6 font-sans text-sm tracking-widest text-gray-500">
+          <ul className="space-y-6 font-sans text-sm tracking-widest">
             <li>
-              <a href="/servicos/sofas" className="hover:text-white transition-colors">
+              <a
+                href="/servicos/sofas"
+                className="text-[#D6D1C6] transition-colors hover:text-white"
+              >
                 Higienização de Sofás
               </a>
             </li>
             <li>
-              <a href="/servicos/colchoes" className="hover:text-white transition-colors">
+              <a
+                href="/servicos/colchoes"
+                className="text-[#D6D1C6] transition-colors hover:text-white"
+              >
                 Higienização de Colchões
               </a>
             </li>
             <li>
-              <a href="/servicos" className="hover:text-white transition-colors">
+              <a
+                href="/servicos/tapetes"
+                className="text-[#D6D1C6] transition-colors hover:text-white"
+              >
                 Tratamento de Tapetes
               </a>
             </li>
             <li>
-              <a href="/servicos/impermeabilizacao" className="hover:text-white transition-colors">
+              <a
+                href="/servicos/impermeabilizacao"
+                className="text-[#D6D1C6] transition-colors hover:text-white"
+              >
                 Impermeabilização Premium
               </a>
             </li>
@@ -64,15 +76,15 @@ export const Footer = () => (
         </div>
 
         <div className="space-y-10">
-          <h4 className="text-[#C9A34E] text-xs font-sans tracking-[0.5em] uppercase">
+          <h4 className="text-xs font-sans uppercase tracking-[0.5em] text-[#E0B95D]">
             Áreas Atendidas
           </h4>
-          <ul className="space-y-6 font-sans text-sm tracking-widest text-gray-500">
+          <ul className="space-y-6 font-sans text-sm tracking-widest text-[#D6D1C6]">
             <li>Sorocaba e Votorantim</li>
             <li>Porto Feliz e Região</li>
             <li>Condomínios de Alto Padrão</li>
             <li>
-              <a href="/fazendaboavista" className="hover:text-white transition-colors">
+              <a href="/fazendaboavista" className="transition-colors hover:text-white">
                 Fazenda Boa Vista
               </a>
             </li>
@@ -80,32 +92,32 @@ export const Footer = () => (
         </div>
 
         <div className="space-y-10">
-          <h4 className="text-[#C9A34E] text-xs font-sans tracking-[0.5em] uppercase">Contato</h4>
-          <div className="space-y-8 font-sans text-sm tracking-widest text-gray-400">
+          <h4 className="text-xs font-sans uppercase tracking-[0.5em] text-[#E0B95D]">Contato</h4>
+          <div className="space-y-8 font-sans text-sm tracking-widest text-[#D6D1C6]">
             <div className="space-y-2">
-              <span className="text-[10px] text-gray-600 uppercase tracking-widest block">
+              <span className="block text-[10px] uppercase tracking-widest text-[#A9A397]">
                 WhatsApp
               </span>
               <a
                 href="tel:+5515988064494"
-                className="text-white text-lg font-serif tracking-widest hover:text-[#C9A34E] transition-colors"
+                className="font-serif text-lg tracking-widest text-white transition-colors hover:text-[#E0B95D]"
               >
                 (15) 98806-4494
               </a>
             </div>
             <div className="space-y-2">
-              <span className="text-[10px] text-gray-600 uppercase tracking-widest block">
+              <span className="block text-[10px] uppercase tracking-widest text-[#A9A397]">
                 Localização
               </span>
-              <span className="text-white text-sm uppercase tracking-[0.2em] leading-relaxed">
+              <span className="text-sm uppercase leading-relaxed tracking-[0.2em] text-white">
                 Sorocaba (SP), Votorantim (SP), Porto Feliz (SP) e Fazenda Boa Vista
               </span>
             </div>
             <div className="space-y-2">
-              <span className="text-[10px] text-gray-600 uppercase tracking-widest block">
+              <span className="block text-[10px] uppercase tracking-widest text-[#A9A397]">
                 Horários
               </span>
-              <span className="text-white text-sm uppercase tracking-[0.2em] leading-relaxed">
+              <span className="text-sm uppercase leading-relaxed tracking-[0.2em] text-white">
                 Seg. a Sex. 08h–18h | Sáb. 08h–13h
               </span>
             </div>
@@ -113,11 +125,11 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <p className="text-[10px] text-gray-600 uppercase tracking-[0.5em]">
+      <div className="flex flex-col items-center justify-between gap-8 border-t border-white/15 pt-16 md:flex-row">
+        <p className="text-[10px] uppercase tracking-[0.5em] text-[#BDB7AA]">
           MP CLEAN — CONSERVAÇÃO E PROTEÇÃO PATRIMONIAL
         </p>
-        <p className="text-[10px] text-gray-700 uppercase tracking-[0.3em]">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-[#BDB7AA]">
           © 2026 MP Clean. All rights reserved.
         </p>
       </div>

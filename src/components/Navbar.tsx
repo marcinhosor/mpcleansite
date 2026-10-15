@@ -17,11 +17,12 @@ export const Navbar = () => {
     { label: "Diferenciais", href: "#diferenciais" },
     { label: "Impermeabilização Premium", href: "#impermeabilizacao" },
     { label: "B2B", href: "#corporativo" },
+    { label: "Avaliações", href: "#avaliacoes" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? "bg-black/95 py-3 border-b border-[#C9A34E]/20 backdrop-blur-md" : "bg-transparent py-6"}`}
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-[#C9A34E]/20 transition-all duration-700 ${isScrolled ? "bg-[#1F1E1A]/95 py-3 text-white backdrop-blur-md" : "bg-[#F4EFE5]/92 py-4 text-[#1C1B18] backdrop-blur-md"}`}
     >
       <div className="container px-6 md:px-12 flex justify-between items-center">
         <div
@@ -35,7 +36,9 @@ export const Navbar = () => {
           />
         </div>
 
-        <div className="hidden lg:flex gap-12 items-center text-white/70 font-sans text-[10px] tracking-[0.4em] uppercase font-bold">
+        <div
+          className={`hidden lg:flex gap-10 items-center font-sans text-[10px] tracking-[0.3em] uppercase font-bold ${isScrolled ? "text-white/80" : "text-[#514F49]"}`}
+        >
           {navLinks.map((link) => (
             <a
               key={link.label}
