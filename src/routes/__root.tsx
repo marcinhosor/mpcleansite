@@ -77,17 +77,41 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MP Clean — Higienização e Conservação Premium" },
-      { name: "description", content: "Especialistas em higienização e conservação de estofados, tapetes e colchões para ambientes de alto padrão em Sorocaba, Votorantim e região." },
+      { title: "Higienização de Estofados em Sorocaba e Região | MP Clean" },
+      {
+        name: "description",
+        content:
+          "Especialistas em higienização profunda e blindagem de estofados, sofás, colchões e tapetes em Sorocaba, Votorantim, Porto Feliz e Fazenda Boa Vista. Atendimento discreto e agendamento rápido via WhatsApp.",
+      },
+      {
+        name: "keywords",
+        content:
+          "higienização de estofados sorocaba, limpeza de sofá sorocaba, lavar sofá sorocaba, impermeabilização de estofados sorocaba, higienização sofá fazenda boa vista",
+      },
       { name: "author", content: "MP Clean" },
-      { property: "og:title", content: "MP Clean — Higienização e Conservação Premium" },
-      { property: "og:description", content: "Especialistas em higienização e conservação de estofados, tapetes e colchões para ambientes de alto padrão em Sorocaba, Votorantim e região." },
+      {
+        property: "og:title",
+        content: "Higienização de Estofados em Sorocaba e Região | MP Clean",
+      },
+      {
+        property: "og:description",
+        content:
+          "Higienização profunda, blindagem e conservação de sofás, colchões, tapetes e poltronas em Sorocaba e região.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/logo.png" },
+      { property: "og:image", content: "https://mpcleansorocaba.com.br/logo.png" },
+      { property: "og:url", content: "https://mpcleansorocaba.com.br/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "MP Clean — Higienização e Conservação Premium" },
-      { name: "twitter:description", content: "Especialistas em higienização e conservação de estofados, tapetes e colchões para ambientes de alto padrão em Sorocaba, Votorantim e região." },
-      { name: "twitter:image", content: "/logo.png" },
+      {
+        name: "twitter:title",
+        content: "Higienização de Estofados em Sorocaba e Região | MP Clean",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Higienização profunda e blindagem de estofados em Sorocaba, Votorantim, Porto Feliz e Fazenda Boa Vista.",
+      },
+      { name: "twitter:image", content: "https://mpcleansorocaba.com.br/logo.png" },
     ],
     links: [
       {
@@ -112,6 +136,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "image/png",
         href: "/logo.png",
       },
+      {
+        rel: "canonical",
+        href: "https://mpcleansorocaba.com.br/",
+      },
     ],
     scripts: [
       {
@@ -135,7 +163,7 @@ gtag('config', 'G-6YER7H50BN');`,
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

@@ -1,22 +1,14 @@
 ﻿import { MessageCircle } from "lucide-react";
+import { WHATSAPP_URL, reportWhatsAppConversion } from "@/lib/whatsapp";
 
 export const WhatsAppButton = () => {
   const handleClick = () => {
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", "conversion", {
-        send_to: "AW-829588884/LIGXCMUJ6ZYdEJSLyosD",
-      });
-
-      window.gtag("event", "click", {
-        event_category: "WhatsApp",
-        event_label: "Floating Button",
-      });
-    }
+    reportWhatsAppConversion("Floating Button");
   };
 
   return (
     <a
-      href="https://wa.me/5515988064494?text=Olá%20MP%20Clean!%20Gostaria%20de%20uma%20avaliação%20especializada."
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}

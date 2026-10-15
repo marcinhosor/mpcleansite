@@ -23,8 +23,7 @@ export const Route = createFileRoute("/lp")({
   head: () => ({
     meta: [
       {
-        title:
-          "MP Clean | Higienização e Impermeabilização de Estofados em Sorocaba",
+        title: "MP Clean | Higienização e Impermeabilização de Estofados em Sorocaba",
       },
       {
         name: "description",
@@ -38,8 +37,7 @@ export const Route = createFileRoute("/lp")({
       },
       {
         property: "og:title",
-        content:
-          "MP Clean | Higienização e Impermeabilização de Estofados em Sorocaba",
+        content: "MP Clean | Higienização e Impermeabilização de Estofados em Sorocaba",
       },
       {
         property: "og:description",
@@ -48,13 +46,11 @@ export const Route = createFileRoute("/lp")({
       },
       {
         property: "og:url",
-        content: "https://mpcleansite.lovable.app/lp",
+        content: "https://mpcleansorocaba.com.br/lp",
       },
       { property: "og:type", content: "website" },
     ],
-    links: [
-      { rel: "canonical", href: "https://mpcleansite.lovable.app/lp" },
-    ],
+    links: [{ rel: "canonical", href: "https://mpcleansorocaba.com.br/lp" }],
   }),
   component: LandingPage,
 });
@@ -95,14 +91,12 @@ const benefits = [
   {
     icon: HeartPulse,
     title: "Eliminação de ácaros e bactérias",
-    description:
-      "Tratamento técnico que reduz agentes alergênicos e protege a saúde da família.",
+    description: "Tratamento técnico que reduz agentes alergênicos e protege a saúde da família.",
   },
   {
     icon: Wind,
     title: "Ambientes mais saudáveis",
-    description:
-      "Ar mais leve, livre de odores e impurezas que se acumulam nos tecidos.",
+    description: "Ar mais leve, livre de odores e impurezas que se acumulam nos tecidos.",
   },
   {
     icon: Droplets,
@@ -202,10 +196,7 @@ function LandingPage() {
       </header>
 
       {/* Hero */}
-      <section
-        id="top"
-        className="relative overflow-hidden border-b border-white/5"
-      >
+      <section id="top" className="relative overflow-hidden border-b border-white/5">
         <div
           aria-hidden
           className="absolute inset-0 opacity-[0.07] pointer-events-none"
@@ -235,9 +226,8 @@ function LandingPage() {
             </h1>
 
             <p className="mt-6 sm:mt-8 text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Especialistas em higienização, impermeabilização e revitalização
-              de estofados para residências e empresas de alto padrão em
-              Sorocaba e região.
+              Especialistas em higienização, impermeabilização e revitalização de estofados para
+              residências e empresas de alto padrão em Sorocaba e região.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -264,10 +254,7 @@ function LandingPage() {
       </section>
 
       {/* Services */}
-      <section
-        id="servicos"
-        className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28"
-      >
+      <section id="servicos" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
         <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
           <span
             className="text-[10px] sm:text-xs tracking-[0.3em] uppercase"
@@ -289,9 +276,7 @@ function LandingPage() {
                 className="bg-black p-8 sm:p-10 hover:bg-white/[0.02] transition-colors duration-500"
               >
                 <Icon size={28} style={{ color: GOLD }} strokeWidth={1.5} />
-                <h3 className="mt-6 text-lg sm:text-xl font-medium">
-                  {service.title}
-                </h3>
+                <h3 className="mt-6 text-lg sm:text-xl font-medium">{service.title}</h3>
                 <p className="mt-3 text-sm sm:text-base text-white/60 leading-relaxed">
                   {service.description}
                 </p>
@@ -332,9 +317,7 @@ function LandingPage() {
                     <Icon size={20} style={{ color: GOLD }} strokeWidth={1.5} />
                   </div>
                   <h3 className="mt-5 text-base font-medium">{b.title}</h3>
-                  <p className="mt-2 text-sm text-white/55 leading-relaxed">
-                    {b.description}
-                  </p>
+                  <p className="mt-2 text-sm text-white/55 leading-relaxed">{b.description}</p>
                 </div>
               );
             })}
@@ -343,10 +326,7 @@ function LandingPage() {
       </section>
 
       {/* Before / After */}
-      <section
-        id="resultados"
-        className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28"
-      >
+      <section id="resultados" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
         <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
           <span
             className="text-[10px] sm:text-xs tracking-[0.3em] uppercase"
@@ -406,17 +386,10 @@ function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
-              <figure
-                key={t.name}
-                className="p-8 rounded-2xl border border-white/5 bg-black/40"
-              >
+              <figure key={t.name} className="p-8 rounded-2xl border border-white/5 bg-black/40">
                 <div className="flex gap-1 mb-5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      style={{ color: GOLD, fill: GOLD }}
-                    />
+                    <Star key={i} size={14} style={{ color: GOLD, fill: GOLD }} />
                   ))}
                 </div>
                 <blockquote className="text-sm sm:text-base text-white/80 leading-relaxed italic">
@@ -447,8 +420,7 @@ function LandingPage() {
             </span>
           </h2>
           <p className="mt-6 text-white/60 max-w-xl mx-auto">
-            Solicite agora seu orçamento personalizado e descubra o padrão MP
-            Clean de atendimento.
+            Solicite agora seu orçamento personalizado e descubra o padrão MP Clean de atendimento.
           </p>
 
           <a
@@ -465,22 +437,17 @@ function LandingPage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-white/50">
             <span className="inline-flex items-center gap-2">
-              <Star size={12} style={{ color: GOLD, fill: GOLD }} /> 4.9/5 de
-              clientes satisfeitos
+              <Star size={12} style={{ color: GOLD, fill: GOLD }} /> 4.9/5 de clientes satisfeitos
             </span>
             <span className="inline-flex items-center gap-2">
-              <ShieldCheck size={12} style={{ color: GOLD }} /> Garantia de
-              secagem e odor agradável
+              <ShieldCheck size={12} style={{ color: GOLD }} /> Garantia de secagem e odor agradável
             </span>
           </div>
         </motion.div>
       </section>
 
       {/* Footer */}
-      <footer
-        className="border-t border-white/5"
-        style={{ backgroundColor: "#050505" }}
-      >
+      <footer className="border-t border-white/5" style={{ backgroundColor: "#050505" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
           <div className="grid sm:grid-cols-3 gap-10 items-start">
             <div>
@@ -491,16 +458,13 @@ function LandingPage() {
                 loading="lazy"
               />
               <p className="mt-4 text-xs text-white/50 leading-relaxed max-w-xs">
-                Higienização e impermeabilização de estofados com padrão
-                premium em Sorocaba e região.
+                Higienização e impermeabilização de estofados com padrão premium em Sorocaba e
+                região.
               </p>
             </div>
 
             <div className="text-sm">
-              <h3
-                className="text-[10px] tracking-[0.3em] uppercase mb-4"
-                style={{ color: GOLD }}
-              >
+              <h3 className="text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: GOLD }}>
                 Contato
               </h3>
               <a
@@ -522,10 +486,7 @@ function LandingPage() {
             </div>
 
             <div className="text-sm">
-              <h3
-                className="text-[10px] tracking-[0.3em] uppercase mb-4"
-                style={{ color: GOLD }}
-              >
+              <h3 className="text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: GOLD }}>
                 Atendimento
               </h3>
               <p className="flex items-center gap-2 text-white/70">
@@ -535,10 +496,7 @@ function LandingPage() {
           </div>
 
           <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/40">
-            <span>
-              © {new Date().getFullYear()} MP Clean. Todos os direitos
-              reservados.
-            </span>
+            <span>© {new Date().getFullYear()} MP Clean. Todos os direitos reservados.</span>
             <span>Sorocaba • São Paulo</span>
           </div>
         </div>

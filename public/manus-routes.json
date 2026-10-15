@@ -1,0 +1,15 @@
+{
+  "routes": [
+    { "path": "/", "title": "MP Clean — Higienização de Estofados em Sorocaba" },
+    { "path": "/areas-atendidas", "title": "Áreas Atendidas pela MP Clean" },
+    { "path": "/atendimento-corporativo", "title": "Atendimento Corporativo MP Clean" },
+    { "path": "/blog", "title": "Blog MP Clean" },
+    { "path": "/contato", "title": "Contato MP Clean" },
+    { "path": "/lp", "title": "Higienização de Estofados em Sorocaba" },
+    { "path": "/servicos", "title": "Serviços de Higienização de Estofados" },
+    { "path": "/servicos/colchoes", "title": "Higienização de Colchões" },
+    { "path": "/servicos/impermeabilizacao", "title": "Impermeabilização de Estofados" },
+    { "path": "/servicos/poltronas", "title": "Conservação de Poltronas" },
+    { "path": "/servicos/sofas", "title": "Higienização de Sofás" }
+  ]
+}

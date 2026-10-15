@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const BASE_URL = "https://mpclean.com.br";
+const BASE_URL = "https://mpcleansorocaba.com.br";
 
 interface SitemapEntry {
   path: string;
@@ -14,7 +14,17 @@ export const Route = createFileRoute("/sitemap.xml")({
     handlers: {
       GET: async () => {
         const entries: SitemapEntry[] = [
-          { path: "/", changefreq: "weekly", priority: "1.0" }
+          { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/areas-atendidas", changefreq: "monthly", priority: "0.8" },
+          { path: "/atendimento-corporativo", changefreq: "monthly", priority: "0.8" },
+          { path: "/blog", changefreq: "weekly", priority: "0.7" },
+          { path: "/contato", changefreq: "monthly", priority: "0.8" },
+          { path: "/lp", changefreq: "monthly", priority: "0.8" },
+          { path: "/servicos", changefreq: "monthly", priority: "0.9" },
+          { path: "/servicos/colchoes", changefreq: "monthly", priority: "0.8" },
+          { path: "/servicos/impermeabilizacao", changefreq: "monthly", priority: "0.8" },
+          { path: "/servicos/poltronas", changefreq: "monthly", priority: "0.8" },
+          { path: "/servicos/sofas", changefreq: "monthly", priority: "0.8" },
         ];
 
         const urls = entries.map((e) =>
