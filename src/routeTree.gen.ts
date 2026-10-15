@@ -21,6 +21,7 @@ import { Route as ServicosColchoesRouteImport } from './routes/servicos.colchoes
 import { Route as ServicosImpermeabilizacaoRouteImport } from './routes/servicos.impermeabilizacao'
 import { Route as ServicosPoltronasRouteImport } from './routes/servicos.poltronas'
 import { Route as ServicosSofasRouteImport } from './routes/servicos.sofas'
+import { Route as ServicosTapetesRouteImport } from './routes/servicos.tapetes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -83,6 +84,11 @@ const ServicosSofasRoute = ServicosSofasRouteImport.update({
   path: '/sofas',
   getParentRoute: () => ServicosRoute,
 } as any)
+const ServicosTapetesRoute = ServicosTapetesRouteImport.update({
+  id: '/tapetes',
+  path: '/tapetes',
+  getParentRoute: () => ServicosRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
   '/servicos/poltronas': typeof ServicosPoltronasRoute
   '/servicos/sofas': typeof ServicosSofasRoute
+  '/servicos/tapetes': typeof ServicosTapetesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -111,6 +118,7 @@ export interface FileRoutesByTo {
   '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
   '/servicos/poltronas': typeof ServicosPoltronasRoute
   '/servicos/sofas': typeof ServicosSofasRoute
+  '/servicos/tapetes': typeof ServicosTapetesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/servicos/impermeabilizacao': typeof ServicosImpermeabilizacaoRoute
   '/servicos/poltronas': typeof ServicosPoltronasRoute
   '/servicos/sofas': typeof ServicosSofasRoute
+  '/servicos/tapetes': typeof ServicosTapetesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/servicos/impermeabilizacao'
     | '/servicos/poltronas'
     | '/servicos/sofas'
+    | '/servicos/tapetes'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/servicos/impermeabilizacao'
     | '/servicos/poltronas'
     | '/servicos/sofas'
+    | '/servicos/tapetes'
   id:
     | '__root__'
     | '/'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '/servicos/impermeabilizacao'
     | '/servicos/poltronas'
     | '/servicos/sofas'
+    | '/servicos/tapetes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -269,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosSofasRouteImport
       parentRoute: typeof ServicosRoute
     }
+    '/servicos/tapetes': {
+      id: '/servicos/tapetes'
+      path: '/tapetes'
+      fullPath: '/servicos/tapetes'
+      preLoaderRoute: typeof ServicosTapetesRouteImport
+      parentRoute: typeof ServicosRoute
+    }
   }
 }
 
@@ -277,6 +296,7 @@ interface ServicosRouteChildren {
   ServicosImpermeabilizacaoRoute: typeof ServicosImpermeabilizacaoRoute
   ServicosPoltronasRoute: typeof ServicosPoltronasRoute
   ServicosSofasRoute: typeof ServicosSofasRoute
+  ServicosTapetesRoute: typeof ServicosTapetesRoute
 }
 
 const ServicosRouteChildren: ServicosRouteChildren = {
@@ -284,6 +304,7 @@ const ServicosRouteChildren: ServicosRouteChildren = {
   ServicosImpermeabilizacaoRoute: ServicosImpermeabilizacaoRoute,
   ServicosPoltronasRoute: ServicosPoltronasRoute,
   ServicosSofasRoute: ServicosSofasRoute,
+  ServicosTapetesRoute: ServicosTapetesRoute,
 }
 
 const ServicosRouteWithChildren = ServicosRoute._addFileChildren(

@@ -10,6 +10,7 @@
     { "path": "/servicos/colchoes", "title": "Higienização de Colchões" },
     { "path": "/servicos/impermeabilizacao", "title": "Impermeabilização de Estofados" },
     { "path": "/servicos/poltronas", "title": "Conservação de Poltronas" },
-    { "path": "/servicos/sofas", "title": "Higienização de Sofás" }
+    { "path": "/servicos/sofas", "title": "Higienização de Sofás" },
+    { "path": "/servicos/tapetes", "title": "Tratamento e Lavagem de Tapetes" }
   ]
 }

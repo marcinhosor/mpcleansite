@@ -1,4 +1,4 @@
-import { Sofa, Armchair, Bed, Grid, Layers, Shield, Square, ChevronRight } from "lucide-react";
+import { Sofa, Armchair, Bed, Grid, Layers, Shield, ChevronRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const services = [
@@ -6,37 +6,37 @@ const services = [
     icon: Sofa,
     title: "Higienização e Limpeza de Sofás",
     desc: "Tratamento profundo para tecidos nobres, estruturas delicadas e remoção de sujeiras impregnadas.",
-    slug: "sofas",
+    path: "/servicos/sofas",
   },
   {
     icon: Armchair,
     title: "Conservação de Poltronas e Cadeiras",
     desc: "Conservação detalhada de poltronas de design, cadeiras estofadas e peças assinadas.",
-    slug: "poltronas",
+    path: "/servicos/poltronas",
   },
   {
     icon: Bed,
     title: "Higienização Profunda de Colchões",
     desc: "Higienização técnica para reduzir ácaros, odores e impurezas e melhorar o bem-estar no descanso.",
-    slug: "colchoes",
+    path: "/servicos/colchoes",
   },
   {
     icon: Grid,
     title: "Tratamento e Lavagem de Tapetes",
     desc: "Processos adequados para preservar fibras naturais e sintéticas, cores e textura.",
-    slug: "tapetes",
+    path: "/servicos/tapetes",
   },
   {
     icon: Layers,
     title: "Atendimento Corporativo e Escritórios",
     desc: "Planos de conservação para escritórios, clínicas, hotéis, condomínios e ambientes corporativos.",
-    slug: "cortinas",
+    path: "/atendimento-corporativo",
   },
   {
     icon: Shield,
     title: "Impermeabilização e Blindagem Molecular",
     desc: "Proteção duradoura contra líquidos e manchas sem alterar o toque original do tecido.",
-    slug: "impermeabilizacao",
+    path: "/servicos/impermeabilizacao",
   },
 ];
 
@@ -73,8 +73,10 @@ export const Services = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {services.map((s, i) => (
-          <div
+          <Link
             key={i}
+            to={s.path}
+            aria-label={`Saiba mais sobre ${s.title}`}
             className="group bg-[#111111] p-12 border border-white/5 hover:border-[#C9A34E]/30 transition-all duration-700 relative overflow-hidden flex flex-col h-full"
           >
             <div className="relative z-10 space-y-8 flex-grow">
@@ -101,7 +103,7 @@ export const Services = () => (
 
             {/* Hover background effect */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#C9A34E]/5 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
