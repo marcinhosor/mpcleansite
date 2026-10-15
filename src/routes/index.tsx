@@ -57,19 +57,19 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "HomeAndConstructionBusiness",
+          "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
           name: "MP Clean — Higienização e Blindagem de Estofados",
           alternateName: "MP Clean Sorocaba",
+          description:
+            "Higienização, limpeza, impermeabilização e conservação de sofás, colchões, tapetes e poltronas em Sorocaba e região.",
           image: "https://mpcleansorocaba.com.br/logo.png",
           "@id": "https://mpcleansorocaba.com.br/#business",
           url: "https://mpcleansorocaba.com.br/",
           telephone: "+5515988064494",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "",
             addressLocality: "Sorocaba",
             addressRegion: "SP",
-            postalCode: "",
             addressCountry: "BR",
           },
           geo: {

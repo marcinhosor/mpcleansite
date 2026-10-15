@@ -107,10 +107,12 @@ export const Footer = () => (
             </div>
             <div className="space-y-2">
               <span className="block text-[10px] uppercase tracking-widest text-[#A9A397]">
-                Localização
+                Base de atendimento
               </span>
               <span className="text-sm uppercase leading-relaxed tracking-[0.2em] text-white">
-                Sorocaba (SP), Votorantim (SP), Porto Feliz (SP) e Fazenda Boa Vista
+                Sorocaba (SP) — atendimento com hora marcada
+                <br />
+                Votorantim, Porto Feliz e Fazenda Boa Vista
               </span>
             </div>
             <div className="space-y-2">
