@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Droplets, ShieldCheck, Sparkles } from "lucide-react";
+import { BackToServices } from "@/components/BackToServices";
 
 export const Route = createFileRoute("/servicos/tapetes")({
   component: ServiceTapetes,
@@ -32,6 +33,7 @@ function ServiceTapetes() {
       <div className="pt-32">
         <section className="container px-4 py-16">
           <div className="mx-auto max-w-5xl">
+            <BackToServices />
             <span className="mb-5 block text-xs font-sans uppercase tracking-[0.45em] text-[#9C7A2E]">
               Tratamento especializado
             </span>
