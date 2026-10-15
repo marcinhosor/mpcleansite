@@ -71,7 +71,11 @@ export const Footer = () => (
             <li>Sorocaba e Votorantim</li>
             <li>Porto Feliz e Região</li>
             <li>Condomínios de Alto Padrão</li>
-            <li>Fazenda Boa Vista</li>
+            <li>
+              <a href="/fazendaboavista" className="hover:text-white transition-colors">
+                Fazenda Boa Vista
+              </a>
+            </li>
           </ul>
         </div>
 

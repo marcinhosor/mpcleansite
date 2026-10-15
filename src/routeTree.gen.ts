@@ -14,6 +14,7 @@ import { Route as AreasAtendidasRouteImport } from './routes/areas-atendidas'
 import { Route as AtendimentoCorporativoRouteImport } from './routes/atendimento-corporativo'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as FazendaboavistaRouteImport } from './routes/fazendaboavista'
 import { Route as LpRouteImport } from './routes/lp'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -46,6 +47,11 @@ const BlogRoute = BlogRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FazendaboavistaRoute = FazendaboavistaRouteImport.update({
+  id: '/fazendaboavista',
+  path: '/fazendaboavista',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LpRoute = LpRouteImport.update({
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
   '/blog': typeof BlogRoute
   '/contato': typeof ContatoRoute
+  '/fazendaboavista': typeof FazendaboavistaRoute
   '/lp': typeof LpRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -111,6 +118,7 @@ export interface FileRoutesByTo {
   '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
   '/blog': typeof BlogRoute
   '/contato': typeof ContatoRoute
+  '/fazendaboavista': typeof FazendaboavistaRoute
   '/lp': typeof LpRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -127,6 +135,7 @@ export interface FileRoutesById {
   '/atendimento-corporativo': typeof AtendimentoCorporativoRoute
   '/blog': typeof BlogRoute
   '/contato': typeof ContatoRoute
+  '/fazendaboavista': typeof FazendaboavistaRoute
   '/lp': typeof LpRoute
   '/servicos': typeof ServicosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -144,6 +153,7 @@ export interface FileRouteTypes {
     | '/atendimento-corporativo'
     | '/blog'
     | '/contato'
+    | '/fazendaboavista'
     | '/lp'
     | '/servicos'
     | '/sitemap.xml'
@@ -159,6 +169,7 @@ export interface FileRouteTypes {
     | '/atendimento-corporativo'
     | '/blog'
     | '/contato'
+    | '/fazendaboavista'
     | '/lp'
     | '/servicos'
     | '/sitemap.xml'
@@ -174,6 +185,7 @@ export interface FileRouteTypes {
     | '/atendimento-corporativo'
     | '/blog'
     | '/contato'
+    | '/fazendaboavista'
     | '/lp'
     | '/servicos'
     | '/sitemap.xml'
@@ -190,6 +202,7 @@ export interface RootRouteChildren {
   AtendimentoCorporativoRoute: typeof AtendimentoCorporativoRoute
   BlogRoute: typeof BlogRoute
   ContatoRoute: typeof ContatoRoute
+  FazendaboavistaRoute: typeof FazendaboavistaRoute
   LpRoute: typeof LpRoute
   ServicosRoute: typeof ServicosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -230,6 +243,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fazendaboavista': {
+      id: '/fazendaboavista'
+      path: '/fazendaboavista'
+      fullPath: '/fazendaboavista'
+      preLoaderRoute: typeof FazendaboavistaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lp': {
@@ -317,6 +337,7 @@ const rootRouteChildren: RootRouteChildren = {
   AtendimentoCorporativoRoute: AtendimentoCorporativoRoute,
   BlogRoute: BlogRoute,
   ContatoRoute: ContatoRoute,
+  FazendaboavistaRoute: FazendaboavistaRoute,
   LpRoute: LpRoute,
   ServicosRoute: ServicosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
