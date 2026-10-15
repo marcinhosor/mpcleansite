@@ -7,16 +7,16 @@ import { ShieldCheck, Layers, Droplets } from "lucide-react";
 
 export const Route = createFileRoute("/servicos/impermeabilizacao")({
   component: () => (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F7F4EE] text-[#1C1B18]">
       <Navbar />
       <div className="pt-32">
         <section className="container px-4 py-16">
           <BackToServices />
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-serif mb-8 text-[#0A0A0A]">
               Proteção Invisível e Exclusiva
             </h1>
-            <p className="text-xl text-gray-700 font-sans mb-12 leading-relaxed">
+            <p className="mb-12 font-sans text-xl leading-relaxed text-[#514F49]">
               O tratamento de impermeabilização da MP Clean é um investimento na longevidade e na
               beleza do seu patrimônio. Criamos uma barreira nano-tecnológica que repele líquidos e
               protege as fibras.
@@ -40,15 +40,18 @@ export const Route = createFileRoute("/servicos/impermeabilizacao")({
                   desc: "Líquidos derramados ficam na superfície, fáceis de remover.",
                 },
               ].map((item, i) => (
-                <div key={i} className="p-8 bg-gray-50 text-center space-y-4">
+                <div
+                  key={i}
+                  className="space-y-4 border border-[#D8D1C3] bg-[#FCFBF8] p-8 text-center"
+                >
                   <item.icon className="w-12 h-12 text-[#C9A34E] mx-auto" />
                   <h3 className="text-xl font-serif">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-sm leading-relaxed text-[#5E5B53]">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-[#0A0A0A] p-12 text-white relative overflow-hidden">
+            <div className="relative overflow-hidden bg-[#2B2924] p-12 text-white">
               <div className="relative z-10 text-center">
                 <h2 className="text-3xl font-serif mb-6 text-[#C9A34E]">
                   Proteja seu investimento hoje

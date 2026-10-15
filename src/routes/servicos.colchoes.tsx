@@ -17,35 +17,35 @@ export const Route = createFileRoute("/servicos/colchoes")({
 
 function ServiceColchoes() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F7F4EE] text-[#1C1B18]">
       <Navbar />
       <div className="pt-32">
         <section className="container px-4 py-16">
           <BackToServices />
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-serif mb-8 text-[#0A0A0A]">
-              Higienização de Colchões de Alto Padrão
+              Higienização de colchões com látex Talalay
             </h1>
             <p className="text-xl text-gray-700 font-sans mb-12 leading-relaxed">
-              Você passa um terço da sua vida no seu colchão. Garantimos que esse tempo seja cercado
-              de saúde, frescor e pureza através de uma higienização profunda que elimina ácaros e
-              fungos.
+              O látex Talalay oferece conforto, elasticidade e ventilação. A higienização correta
+              ajuda a preservar essas características e remove poeira, ácaros, odores e impurezas
+              acumuladas no uso diário.
             </p>
 
             <div className="grid md:grid-cols-2 gap-12 mb-20">
               <img
-                src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop"
-                alt="Higienização de Colchão"
-                className="rounded-lg shadow-xl"
+                src="/colchao-talalay.jpg"
+                alt="Colchão premium de látex Talalay em quarto sofisticado"
+                className="rounded-lg object-cover shadow-xl"
               />
               <div className="space-y-6">
-                <h3 className="text-2xl font-serif text-[#C9A34E]">Benefícios Exclusivos</h3>
+                <h3 className="text-2xl font-serif text-[#C9A34E]">Cuidado para o látex Talalay</h3>
                 <ul className="space-y-4">
                   {[
-                    "Eliminação de 99.9% de agentes alérgicos",
-                    "Neutralização de odores indesejados",
-                    "Preservação da estrutura do colchão",
-                    "Produtos dermatologicamente testados",
+                    "Limpeza profunda sem encharcar o colchão",
+                    "Preservação da ventilação e da elasticidade do látex",
+                    "Neutralização de odores e remoção de impurezas",
+                    "Produtos adequados para o uso residencial",
                   ].map((text, i) => (
                     <li key={i} className="flex gap-3 items-center">
                       <CheckCircle className="text-[#C9A34E] w-5 h-5" />
@@ -78,7 +78,7 @@ function ServiceColchoes() {
               </AccordionItem>
             </Accordion>
 
-            <div className="bg-[#0A0A0A] p-12 text-center text-white rounded-none">
+            <div className="rounded-none bg-[#2B2924] p-12 text-center text-white">
               <h2 className="text-3xl font-serif mb-6">
                 Pronto para uma noite de sono revigorante?
               </h2>

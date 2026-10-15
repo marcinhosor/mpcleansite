@@ -88,7 +88,7 @@ const suitableFor = [
 
 function FazendaBoaVistaPage() {
   return (
-    <div className="min-h-screen bg-white text-[#0A0A0A]">
+    <div className="min-h-screen bg-[#F7F4EE] text-[#1C1B18]">
       <Navbar />
 
       <main className="pt-24">
@@ -157,7 +157,7 @@ function FazendaBoaVistaPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-[#0A0A0A] text-white">
+        <section className="border-y border-[#C9A34E]/15 bg-[#2B2924] text-white">
           <div className="container grid gap-14 px-6 py-24 md:px-12 md:py-32 lg:grid-cols-2 lg:items-center">
             <div>
               <span className="mb-5 block text-xs font-sans uppercase tracking-[0.45em] text-[#C9A34E]">

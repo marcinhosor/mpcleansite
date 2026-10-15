@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Droplets, ShieldCheck, Sparkles } from "lucide-react";
 import { BackToServices } from "@/components/BackToServices";
+import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const Route = createFileRoute("/servicos/tapetes")({
   component: ServiceTapetes,
@@ -29,8 +32,9 @@ const benefits = [
 
 function ServiceTapetes() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="pt-32">
+    <div className="min-h-screen bg-[#F7F4EE] text-[#1C1B18]">
+      <Navbar />
+      <main className="pt-32">
         <section className="container px-4 py-16">
           <div className="mx-auto max-w-5xl">
             <BackToServices />
@@ -52,11 +56,11 @@ function ServiceTapetes() {
                 return (
                   <div
                     key={benefit.title}
-                    className="space-y-4 border border-gray-100 bg-[#FAFAF8] p-8"
+                    className="space-y-4 border border-[#D8D1C3] bg-[#FCFBF8] p-8"
                   >
                     <Icon className="h-10 w-10 text-[#C9A34E]" strokeWidth={1.5} />
-                    <h2 className="font-serif text-2xl text-[#0A0A0A]">{benefit.title}</h2>
-                    <p className="text-sm leading-relaxed text-gray-600">{benefit.description}</p>
+                    <h2 className="font-serif text-2xl text-[#1C1B18]">{benefit.title}</h2>
+                    <p className="text-sm leading-relaxed text-[#5E5B53]">{benefit.description}</p>
                   </div>
                 );
               })}
@@ -83,7 +87,7 @@ function ServiceTapetes() {
                   ))}
                 </ol>
               </div>
-              <div className="bg-[#0A0A0A] p-10 text-white">
+              <div className="bg-[#2B2924] p-10 text-white">
                 <h2 className="mb-5 font-serif text-3xl text-[#C9A34E]">O que podemos tratar?</h2>
                 <ul className="space-y-4 text-gray-300">
                   {[
@@ -120,7 +124,9 @@ function ServiceTapetes() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
+      <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
