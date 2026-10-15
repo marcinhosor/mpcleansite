@@ -92,24 +92,24 @@ function FazendaBoaVistaPage() {
       <Navbar />
 
       <main className="pt-24">
-        <section className="relative overflow-hidden bg-[#0A0A0A] text-white">
+        <section className="relative overflow-hidden bg-[#E9E5DC] text-[#1C1B18]">
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-35"
+            className="absolute inset-0 bg-cover bg-center opacity-45"
             style={{
               backgroundImage:
                 "url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop')",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#E9E5DC]/95 via-[#E9E5DC]/78 to-[#E9E5DC]/35" />
           <div className="container relative z-10 px-6 py-28 md:px-12 md:py-40">
             <div className="max-w-4xl">
-              <span className="mb-6 block text-xs font-sans uppercase tracking-[0.45em] text-[#C9A34E]">
+              <span className="mb-6 block text-xs font-sans uppercase tracking-[0.45em] text-[#8A6A25]">
                 Atendimento especializado na região
               </span>
               <h1 className="font-serif text-5xl leading-[1.05] md:text-7xl">
                 Cuidado premium para os estofados da sua casa na Fazenda Boa Vista
               </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-[#514F49] md:text-xl">
                 A MP Clean atende moradores e proprietários que desejam preservar o conforto, a
                 beleza e o valor dos móveis estofados de suas casas no Residencial Fazenda Boa
                 Vista.
