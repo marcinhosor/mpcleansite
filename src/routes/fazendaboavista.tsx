@@ -7,20 +7,20 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 export const Route = createFileRoute("/fazendaboavista")({
   head: () => ({
     meta: [
-      { title: "Higienização de Estofados na Fazenda Boa Vista | MP Clean" },
+      { title: "Higienização de Estofados no Residencial Fazenda Boa Vista | MP Clean" },
       {
         name: "description",
         content:
-          "Higienização, conservação e impermeabilização de sofás, poltronas, colchões e tapetes para moradores e proprietários da Fazenda Boa Vista.",
+          "Higienização, conservação e impermeabilização de sofás, poltronas, colchões e tapetes para moradores e proprietários do Residencial Fazenda Boa Vista.",
       },
       {
         name: "keywords",
         content:
-          "higienização de estofados Fazenda Boa Vista, limpeza de sofá Fazenda Boa Vista, impermeabilização Fazenda Boa Vista, higienização de colchão Fazenda Boa Vista",
+          "higienização de estofados Residencial Fazenda Boa Vista, limpeza de sofá Fazenda Boa Vista, impermeabilização Fazenda Boa Vista, higienização de colchão Fazenda Boa Vista",
       },
       {
         property: "og:title",
-        content: "Higienização de Estofados na Fazenda Boa Vista | MP Clean",
+        content: "Higienização de Estofados no Residencial Fazenda Boa Vista | MP Clean",
       },
       {
         property: "og:description",
@@ -89,10 +89,10 @@ const suitableFor = [
 function FazendaBoaVistaPage() {
   return (
     <div className="min-h-screen bg-[#F7F4EE] text-[#1C1B18]">
-      <Navbar />
+      <Navbar context="fazendaBoaVista" />
 
       <main className="pt-24">
-        <section className="relative overflow-hidden bg-[#E9E5DC] text-[#1C1B18]">
+        <section id="inicio" className="relative overflow-hidden bg-[#E9E5DC] text-[#1C1B18]">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-45"
             style={{
@@ -104,10 +104,10 @@ function FazendaBoaVistaPage() {
           <div className="container relative z-10 px-6 py-28 md:px-12 md:py-40">
             <div className="max-w-4xl">
               <span className="mb-6 block text-xs font-sans uppercase tracking-[0.45em] text-[#8A6A25]">
-                Atendimento especializado na região
+                Atendimento especializado no Residencial Fazenda Boa Vista
               </span>
               <h1 className="font-serif text-5xl leading-[1.05] md:text-7xl">
-                Cuidado premium para os estofados da sua casa na Fazenda Boa Vista
+                Cuidado premium para os estofados da sua casa no Residencial Fazenda Boa Vista
               </h1>
               <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-[#514F49] md:text-xl">
                 A MP Clean atende moradores e proprietários que desejam preservar o conforto, a
@@ -120,26 +120,27 @@ function FazendaBoaVistaPage() {
                 rel="noopener noreferrer"
                 className="mt-10 inline-flex items-center justify-center bg-[#C9A34E] px-8 py-5 text-xs font-bold uppercase tracking-[0.25em] text-black transition-colors hover:bg-white"
               >
-                Solicitar avaliação para minha casa
+                Solicitar avaliação para minha casa no Residencial Fazenda Boa Vista
               </a>
             </div>
           </div>
         </section>
 
-        <section className="container px-6 py-24 md:px-12 md:py-32">
+        <section id="servicos" className="container px-6 py-24 md:px-12 md:py-32">
           <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <span className="mb-5 block text-xs font-sans uppercase tracking-[0.45em] text-[#9C7A2E]">
-                Para moradores e proprietários
+                Para moradores e proprietários do Residencial Fazenda Boa Vista
               </span>
               <h2 className="font-serif text-4xl leading-tight md:text-6xl">
                 A casa de campo merece o mesmo cuidado que você dedica a cada detalhe.
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-relaxed text-gray-600">
-              Casas na Fazenda Boa Vista recebem famílias, convidados e momentos importantes. A
-              higienização profissional ajuda a manter sofás, poltronas, colchões e tapetes mais
-              limpos, confortáveis e bem preservados, sem interromper a rotina da propriedade.
+              Casas no Residencial Fazenda Boa Vista recebem famílias, convidados e momentos
+              importantes. A higienização profissional ajuda a manter sofás, poltronas, colchões e
+              tapetes mais limpos, confortáveis e bem preservados, sem interromper a rotina da
+              propriedade.
             </p>
           </div>
 
@@ -147,7 +148,15 @@ function FazendaBoaVistaPage() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <article key={service.title} className="border border-gray-100 bg-[#FAFAF8] p-8">
+                <article
+                  id={
+                    service.title === "Impermeabilização e proteção"
+                      ? "impermeabilizacao"
+                      : undefined
+                  }
+                  key={service.title}
+                  className="scroll-mt-32 border border-gray-100 bg-[#FAFAF8] p-8"
+                >
                   <Icon className="h-10 w-10 text-[#C9A34E]" strokeWidth={1.5} />
                   <h3 className="mt-7 font-serif text-2xl">{service.title}</h3>
                   <p className="mt-4 leading-relaxed text-gray-600">{service.description}</p>
@@ -157,7 +166,10 @@ function FazendaBoaVistaPage() {
           </div>
         </section>
 
-        <section className="border-y border-[#C9A34E]/15 bg-[#2B2924] text-white">
+        <section
+          id="cuidados"
+          className="scroll-mt-32 border-y border-[#C9A34E]/15 bg-[#2B2924] text-white"
+        >
           <div className="container grid gap-14 px-6 py-24 md:px-12 md:py-32 lg:grid-cols-2 lg:items-center">
             <div>
               <span className="mb-5 block text-xs font-sans uppercase tracking-[0.45em] text-[#C9A34E]">
@@ -186,9 +198,9 @@ function FazendaBoaVistaPage() {
           </div>
         </section>
 
-        <section className="container px-6 py-24 text-center md:px-12 md:py-32">
+        <section id="como-funciona" className="container px-6 py-24 text-center md:px-12 md:py-32">
           <span className="mb-5 block text-xs font-sans uppercase tracking-[0.45em] text-[#9C7A2E]">
-            MP Clean na Fazenda Boa Vista
+            MP Clean no Residencial Fazenda Boa Vista
           </span>
           <h2 className="mx-auto max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
             Envie uma foto do móvel e receba uma orientação clara pelo WhatsApp.
