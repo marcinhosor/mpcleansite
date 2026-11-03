@@ -246,51 +246,6 @@ function LandingPage() {
       </header>
 
       <main>
-        <section id="inicio" className="relative overflow-hidden border-b border-[#DDD5C7]">
-          <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,162,75,0.18),transparent_58%)]"
-            aria-hidden
-          />
-          <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 sm:py-28">
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65 }}
-            >
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20] sm:text-xs">
-                MP Clean · Sorocaba e região
-              </p>
-              <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-light leading-[1.06] tracking-tight sm:text-6xl md:text-7xl">
-                Seu estofado limpo, protegido e bem cuidado.
-              </h1>
-              <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-[#5E5A52] sm:text-lg">
-                Higienização profissional de sofás, poltronas, colchões e tapetes para residências,
-                condomínios e empresas.
-              </p>
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href={WHATSAPP_LP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handleCTA("Hero")}
-                  className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-sm font-extrabold tracking-wide text-[#12351F] shadow-[0_14px_38px_rgba(37,211,102,0.28)] transition hover:-translate-y-0.5 hover:bg-[#39E477] hover:shadow-[0_18px_42px_rgba(37,211,102,0.36)] sm:w-auto sm:min-w-[340px]"
-                >
-                  <MessageCircle size={21} /> QUERO MEU ORÇAMENTO PELO WHATSAPP
-                </a>
-                <a
-                  href="#servicos"
-                  className="inline-flex items-center gap-2 text-sm text-[#5E5A52] transition hover:text-white"
-                >
-                  Ver serviços <ArrowRight size={16} />
-                </a>
-              </div>
-              <p className="mt-5 text-xs text-[#777168]">
-                Envie uma foto do móvel e receba uma orientação inicial.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
         <section id="resultados" className="border-y border-[#D8D0C1] bg-[#25231F] text-[#F7F4EE]">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
             <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
@@ -339,6 +294,51 @@ function LandingPage() {
                 Envie uma foto do seu estofado e peça uma avaliação pelo WhatsApp.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section id="inicio" className="relative overflow-hidden border-b border-[#DDD5C7]">
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,162,75,0.18),transparent_58%)]"
+            aria-hidden
+          />
+          <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 sm:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65 }}
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20] sm:text-xs">
+                MP Clean · Sorocaba e região
+              </p>
+              <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-light leading-[1.06] tracking-tight sm:text-6xl md:text-7xl">
+                Seu estofado limpo, protegido e bem cuidado.
+              </h1>
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-[#5E5A52] sm:text-lg">
+                Higienização profissional de sofás, poltronas, colchões e tapetes para residências,
+                condomínios e empresas.
+              </p>
+              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href={WHATSAPP_LP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleCTA("Hero")}
+                  className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-sm font-extrabold tracking-wide text-[#12351F] shadow-[0_14px_38px_rgba(37,211,102,0.28)] transition hover:-translate-y-0.5 hover:bg-[#39E477] hover:shadow-[0_18px_42px_rgba(37,211,102,0.36)] sm:w-auto sm:min-w-[340px]"
+                >
+                  <MessageCircle size={21} /> QUERO MEU ORÇAMENTO PELO WHATSAPP
+                </a>
+                <a
+                  href="#servicos"
+                  className="inline-flex items-center gap-2 text-sm text-[#5E5A52] transition hover:text-white"
+                >
+                  Ver serviços <ArrowRight size={16} />
+                </a>
+              </div>
+              <p className="mt-5 text-xs text-[#777168]">
+                Envie uma foto do móvel e receba uma orientação inicial.
+              </p>
+            </motion.div>
           </div>
         </section>
 
