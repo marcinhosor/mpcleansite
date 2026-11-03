@@ -37,7 +37,12 @@ export const Navbar = ({ context = "default" }: { context?: NavbarContext }) => 
 
   return (
     <nav
-      className={\`fixed left-0 right-0 top-0 z-50 border-b border-[#C9A34E]/20 transition-all duration-700 \${isScrolled ? "bg-[#1F1E1A]/95 py-3 text-white backdrop-blur-md" : "bg-[#F4EFE5]/95 py-3 text-[#1C1B18] backdrop-blur-md"}\`}
+      className={
+        "fixed left-0 right-0 top-0 z-50 border-b border-[#C9A34E]/20 transition-all duration-700 " +
+        (isScrolled
+          ? "bg-[#1F1E1A]/95 py-3 text-white backdrop-blur-md"
+          : "bg-[#F4EFE5]/95 py-3 text-[#1C1B18] backdrop-blur-md")
+      }
       aria-label={
         isFazendaBoaVista ? "Navegação do Residencial Fazenda Boa Vista" : "Navegação principal"
       }
@@ -51,12 +56,18 @@ export const Navbar = ({ context = "default" }: { context?: NavbarContext }) => 
           <img
             src="/logo.png"
             alt={isFazendaBoaVista ? "MP Clean no Residencial Fazenda Boa Vista" : "MP Clean"}
-            className={\`\${isScrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"} w-auto object-contain transition-all duration-500 group-hover:scale-105\`}
+            className={
+              (isScrolled ? "h-14 sm:h-16" : "h-16 sm:h-20") +
+              " w-auto object-contain transition-all duration-500 group-hover:scale-105"
+            }
           />
         </a>
 
         <div
-          className={\`hidden items-center gap-7 font-sans text-[10px] font-bold uppercase tracking-[0.2em] xl:flex \${isScrolled ? "text-white/80" : "text-[#514F49]"}\`}
+          className={
+            "hidden items-center gap-7 font-sans text-[10px] font-bold uppercase tracking-[0.2em] xl:flex " +
+            (isScrolled ? "text-white/80" : "text-[#514F49]")
+          }
         >
           {navLinks.map((link) => (
             <a
