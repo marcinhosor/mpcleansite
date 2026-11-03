@@ -4,19 +4,16 @@ import {
   ArrowRight,
   BedDouble,
   CheckCircle2,
-  ChevronDown,
-  Clock3,
   Droplets,
-  HeartHandshake,
+  HeartPulse,
   Layers,
-  MapPin,
   MessageCircle,
   ShieldCheck,
   Sofa,
   Sparkles,
   Star,
 } from "lucide-react";
-
+import { reportWhatsAppConversion } from "@/lib/whatsapp";
 import beforeImg from "@/assets/results-before.png";
 import afterImg from "@/assets/results-after.png";
 import reviewCristiane from "@/assets/google-reviews/Captura_de_tela_2026-11-03_085504.png";
@@ -27,16 +24,10 @@ import reviewRiana from "@/assets/google-reviews/Captura_de_tela_2026-11-03_0853
 import reviewRafaela from "@/assets/google-reviews/Captura_de_tela_2026-11-03_085633.png";
 
 const SITE_URL = "https://mpcleansorocaba.com.br";
-const WHATSAPP_NUMBER = "5515988064494";
-const GOLD = "#C7A54F";
-const WHATSAPP_GREEN = "#25D366";
-
-const makeWhatsAppUrl = (message: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-const mainWhatsAppUrl = makeWhatsAppUrl(
-  "OlÃ¡! Conheci a MP Clean pelo site e gostaria de solicitar um orÃ§amento. Vou enviar uma foto do meu estofado para uma avaliaÃ§Ã£o inicial."
-);
+const GOOGLE_PROFILE_URL =
+  "https://www.google.com/maps/place/M%26P+CLEAN+LIMPEZA+DE+ESTOFADOS/@-23.4137279,-47.5181711,17z/data=!3m1!4b1!4m6!3m5!1s0x94c5f502a9cc0b6b:0xc11f2bd8757d204d!8m2!3d-23.4137279!4d-47.5181711!16s%2Fg%2F11cs3g3nvg?entry=ttu";
+const WHATSAPP_LP_URL =
+  "https://wa.me/5515988064494?text=Ol%C3%A1%20MP%20Clean!%20Vim%20pela%20landing%20page%20e%20quero%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20para%20meu%20estofado.";
 
 const reviews = [
   {
@@ -46,12 +37,12 @@ const reviews = [
   },
   {
     name: "Alex S.",
-    text: "PreÃ§o e qualidade do serviÃ§o muito bom recomendo.",
+    text: "Preço e qualidade do serviço muito bom recomendo.",
     image: reviewAlex,
   },
   {
     name: "Larissa K. M.",
-    text: "Atendimento muito bom e prestativo, serviÃ§o de qualidade e excelentes resultados.",
+    text: "Atendimento muito bom e prestativo, serviço de qualidade e excelentes resultados.",
     image: reviewLarissa,
   },
   {
@@ -61,12 +52,12 @@ const reviews = [
   },
   {
     name: "Riana R.",
-    text: "ExcelÃªncia na qualidade do atendimento e na prestaÃ§Ã£o de serviÃ§os.",
+    text: "Excelência na qualidade do atendimento e na prestação de serviços.",
     image: reviewRiana,
   },
   {
     name: "Rafaela A.",
-    text: "ServiÃ§o de Ã³tima qualidade.",
+    text: "Serviço de ótima qualidade.",
     image: reviewRafaela,
   },
 ];
@@ -74,608 +65,537 @@ const reviews = [
 const services = [
   {
     icon: Sofa,
-    title: "SofÃ¡s e poltronas",
+    title: "Sofás, poltronas e cadeiras",
     description:
-      "HigienizaÃ§Ã£o profissional com processo adequado ao tecido, Ã  estrutura e Ã s condiÃ§Ãµes de uso de cada peÃ§a.",
+      "Higienização profunda para remover poeira, pelos, odores e sujeiras sem descuidar da fibra, da cor e do acabamento.",
   },
   {
     icon: BedDouble,
-    title: "ColchÃµes e cabeceiras",
+    title: "Colchões e cabeceiras",
     description:
-      "Cuidado tÃ©cnico para remover sujidades acumuladas e melhorar a higiene dos tecidos que fazem parte da sua rotina.",
+      "Limpeza técnica para reduzir ácaros, odores e impurezas e deixar o ambiente de descanso mais confortável.",
   },
   {
     icon: Layers,
     title: "Tapetes e carpetes",
     description:
-      "Limpeza especializada conforme as caracterÃ­sticas das fibras, com atenÃ§Ã£o Ã  conservaÃ§Ã£o e ao acabamento.",
+      "Tratamento escolhido conforme a fibra, com cuidado para preservar textura, maciez e aparência.",
   },
   {
     icon: ShieldCheck,
-    title: "Blindagem de estofados",
+    title: "Impermeabilização",
     description:
-      "ProteÃ§Ã£o que ajuda a reduzir a absorÃ§Ã£o de lÃ­quidos e facilita os cuidados cotidianos com o tecido.",
+      "Proteção contra líquidos e manchas para facilitar a manutenção e ajudar a prolongar a vida útil do tecido.",
   },
 ];
 
-const processSteps = [
-  "Entendemos o tipo de estofado e o que vocÃª precisa.",
-  "Analisamos fotos e informaÃ§Ãµes para orientar o orÃ§amento.",
-  "Definimos o procedimento adequado para o material.",
-  "Executamos o serviÃ§o com cuidado tÃ©cnico e atenÃ§Ã£o ao ambiente.",
+const faqs = [
+  {
+    question: "Como solicito um orçamento?",
+    answer:
+      "Envie uma foto do móvel pelo WhatsApp, informe sua cidade e descreva o que precisa. A MP Clean orienta o próximo passo e agenda o atendimento.",
+  },
+  {
+    question: "A higienização é segura para tecidos delicados?",
+    answer:
+      "Cada peça deve ser avaliada antes do serviço. O tratamento é escolhido conforme o tecido, o acabamento e as condições do estofado.",
+  },
+  {
+    question: "A MP Clean atende quais locais?",
+    answer:
+      "O atendimento parte de Sorocaba e alcança Votorantim, Porto Feliz, Fazenda Boa Vista e outras áreas da região, conforme agendamento.",
+  },
+  {
+    question: "A impermeabilização muda o toque do tecido?",
+    answer:
+      "O objetivo é criar proteção contra líquidos e manchas preservando, tanto quanto possível, o toque e a aparência originais do tecido.",
+  },
 ];
-
-function trackWhatsAppClick(label: string) {
-  if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("event", "conversion", {
-      event_category: "WhatsApp",
-      event_label: label,
-    });
-  }
-}
-
-function WhatsAppButton({
-  label,
-  className = "",
-  message = mainWhatsAppUrl,
-}: {
-  label: string;
-  className?: string;
-  message?: string;
-}) {
-  return (
-    <a
-      href={message}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => trackWhatsAppClick(label)}
-      className={`inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-bold tracking-wide text-[#102016] shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black ${className}`}
-      style={{ backgroundColor: WHATSAPP_GREEN }}
-    >
-      <MessageCircle size={20} strokeWidth={2.4} />
-      QUERO MEU ORÃ‡AMENTO
-      <ArrowRight size={17} />
-    </a>
-  );
-}
 
 export const Route = createFileRoute("/lp")({
   head: () => ({
     meta: [
       {
-        title:
-          "MP Clean | HigienizaÃ§Ã£o e Blindagem de Estofados em Sorocaba",
+        title: "Higienização de Estofados em Sorocaba | MP Clean",
       },
       {
         name: "description",
         content:
-          "HigienizaÃ§Ã£o profissional de sofÃ¡s, poltronas, colchÃµes e tapetes, alÃ©m de blindagem de estofados em Sorocaba e regiÃ£o. Solicite uma avaliaÃ§Ã£o pelo WhatsApp.",
+          "Higienização de sofás, poltronas, colchões e tapetes em Sorocaba e região. Atendimento técnico, impermeabilização e orçamento pelo WhatsApp.",
       },
       {
+        name: "keywords",
+        content:
+          "higienização de estofados Sorocaba, limpeza de sofá Sorocaba, impermeabilização de sofá Sorocaba, limpeza de colchão Sorocaba, lavagem de tapetes Sorocaba",
+      },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "author", content: "MP Clean" },
+      {
         property: "og:title",
-        content: "MP Clean | Cuidado profissional para seus estofados",
+        content: "Higienização de Estofados em Sorocaba | MP Clean",
       },
       {
         property: "og:description",
         content:
-          "HigienizaÃ§Ã£o e blindagem de estofados em Sorocaba e regiÃ£o. ConheÃ§a nosso trabalho e solicite seu orÃ§amento pelo WhatsApp.",
+          "Cuidado técnico para sofás, poltronas, colchões e tapetes em Sorocaba e região. Solicite sua avaliação pelo WhatsApp.",
       },
       { property: "og:url", content: `${SITE_URL}/lp` },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "pt_BR" },
+      { property: "og:image", content: `${SITE_URL}/logo.png` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/lp` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+              "@id": `${SITE_URL}/#business`,
+              name: "MP Clean — Higienização e Blindagem de Estofados",
+              alternateName: "MP Clean Sorocaba",
+              url: `${SITE_URL}/lp`,
+              telephone: "+5515988064494",
+              description:
+                "Higienização, limpeza, impermeabilização e conservação de sofás, colchões, tapetes e poltronas em Sorocaba e região.",
+              image: `${SITE_URL}/logo.png`,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Sorocaba",
+                addressRegion: "SP",
+                addressCountry: "BR",
+              },
+              areaServed: ["Sorocaba", "Votorantim", "Porto Feliz", "Fazenda Boa Vista"],
+              employee: {
+                "@type": "Person",
+                name: "Marcio Oliveira",
+                jobTitle: "Responsável técnico",
+              },
+              sameAs: ["https://www.instagram.com/mpclean_sorocaba/", GOOGLE_PROFILE_URL],
+            },
+            {
+              "@type": "Service",
+              name: "Higienização de estofados em Sorocaba",
+              provider: { "@id": `${SITE_URL}/#business` },
+              areaServed: "Sorocaba e região",
+              serviceType: "Higienização, conservação e impermeabilização de estofados",
+              url: `${SITE_URL}/lp`,
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: { "@type": "Answer", text: faq.answer },
+              })),
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: LandingPage,
 });
 
 function LandingPage() {
+  const handleCTA = (label: string) => reportWhatsAppConversion(`LP ${label}`);
+
   return (
-    <main className="min-h-screen overflow-hidden bg-[#090909] pb-20 text-white antialiased selection:bg-[#C7A54F] selection:text-black sm:pb-0">
-      <div className="border-b border-white/10 bg-[#11100d] px-4 py-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-[#D8BD7A] sm:text-xs">
-        MP Clean Â· Atendimento em Sorocaba e regiÃ£o
+    <div className="min-h-screen bg-[#F7F4EE] text-[#25231F] antialiased selection:bg-[#C9A24B] selection:text-black">
+      <div className="border-b border-[#C9A24B]/25 bg-[#EDE7DA] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-[#775B20] sm:text-xs">
+        Atendimento em Sorocaba e região · Orçamento pelo WhatsApp
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#090909]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <a href="#inicio" aria-label="MP Clean - inÃ­cio" className="shrink-0">
+      <header className="sticky top-0 z-40 border-b border-[#D8D0C1] bg-[#F7F4EE]/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+          <a href="#inicio" aria-label="Voltar ao início da landing page MP Clean">
             <img
               src="/logo.png"
-              alt="MP Clean"
+              alt="MP Clean — Higienização de Estofados em Sorocaba"
               className="h-10 w-auto object-contain sm:h-12"
-              loading="eager"
             />
           </a>
-
-          <nav className="hidden items-center gap-7 text-sm text-white/65 md:flex">
+          <nav
+            className="hidden items-center gap-7 text-xs text-[#5E5A52] md:flex"
+            aria-label="Seções da landing page"
+          >
             <a href="#servicos" className="transition hover:text-white">
-              ServiÃ§os
-            </a>
-            <a href="#resultados" className="transition hover:text-white">
-              Resultados
-            </a>
-            <a href="#avaliacoes" className="transition hover:text-white">
-              AvaliaÃ§Ãµes
+              Serviços
             </a>
             <a href="#processo" className="transition hover:text-white">
               Como funciona
             </a>
+            <a href="#duvidas" className="transition hover:text-white">
+              Dúvidas
+            </a>
           </nav>
-
           <a
-            href={mainWhatsAppUrl}
+            href={WHATSAPP_LP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick("Header")}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#25D366]/60 px-3 py-2 text-xs font-semibold text-[#7BE5A0] transition hover:bg-[#25D366]/10 sm:px-4 sm:text-sm"
+            onClick={() => handleCTA("Cabeçalho")}
+            className="inline-flex items-center gap-2 rounded-full border border-[#C9A24B] px-4 py-2 text-xs font-semibold text-[#775B20] transition hover:bg-[#C9A24B] hover:text-black"
           >
-            <MessageCircle size={16} />
-            <span>WhatsApp</span>
+            <MessageCircle size={15} />
+            <span className="hidden sm:inline">Falar no WhatsApp</span>
+            <span className="sm:hidden">WhatsApp</span>
           </a>
         </div>
       </header>
 
-      <section
-        id="inicio"
-        className="relative isolate border-b border-white/10"
-      >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse at 78% 30%, rgba(199,165,79,0.15), transparent 42%), linear-gradient(120deg, #090909 35%, #14120d 100%)",
-          }}
-        />
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:px-8 lg:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65 }}
-            className="text-center lg:text-left"
-          >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#C7A54F]/35 bg-[#C7A54F]/[0.07] px-4 py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-[#D9BF7D] sm:text-xs">
-              <Sparkles size={13} />
-              Cuidado especializado para seus estofados
-            </div>
-
-            <h1 className="font-serif text-[2.55rem] font-normal leading-[1.08] tracking-tight sm:text-6xl lg:text-[4.2rem]">
-              Seu estofado merece um{" "}
-              <span className="italic text-[#D5B66B]">
-                cuidado Ã  altura
-              </span>{" "}
-              do seu ambiente.
-            </h1>
-
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg lg:mx-0">
-              HigienizaÃ§Ã£o profissional e blindagem de estofados com atenÃ§Ã£o
-              aos detalhes, respeito aos materiais e cuidado com o seu espaÃ§o.
-            </p>
-
-            <div className="mt-8 flex flex-col items-center gap-3 lg:items-start">
-              <WhatsAppButton
-                label="Hero principal"
-                className="w-full max-w-md sm:w-auto"
-              />
-              <p className="text-xs text-white/55">
-                Envie uma foto e receba uma avaliaÃ§Ã£o inicial pelo WhatsApp.
+      <main>
+        <section id="inicio" className="relative overflow-hidden border-b border-[#DDD5C7]">
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,162,75,0.18),transparent_58%)]"
+            aria-hidden
+          />
+          <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 sm:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65 }}
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20] sm:text-xs">
+                MP Clean · Sorocaba e região
               </p>
-            </div>
-
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-white/55 lg:justify-start">
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-[#C7A54F]" />
-                Atendimento especializado
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-[#C7A54F]" />
-                Sorocaba e regiÃ£o
-              </span>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.75, delay: 0.1 }}
-            className="relative mx-auto w-full max-w-2xl"
-          >
-            <div className="absolute -inset-3 rounded-[2rem] border border-[#C7A54F]/20" />
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#171512] shadow-2xl">
-              <img
-                src={afterImg}
-                alt="Estofado apÃ³s atendimento profissional da MP Clean"
-                className="aspect-[5/4] w-full object-cover sm:aspect-[4/3]"
-                fetchPriority="high"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5 pt-20 sm:p-7 sm:pt-24">
-                <p className="text-[10px] uppercase tracking-[0.24em] text-[#D8BD7A]">
-                  MP Clean
-                </p>
-                <p className="mt-1 font-serif text-xl sm:text-2xl">
-                  Mais do que limpeza, uma experiÃªncia de cuidado.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="border-b border-white/10 bg-[#11100d]">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 py-7 text-center sm:grid-cols-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-3">
-            <ShieldCheck className="text-[#C7A54F]" size={22} />
-            <span className="text-sm text-white/80">
-              Procedimentos adequados a cada material
-            </span>
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <HeartHandshake className="text-[#C7A54F]" size={22} />
-            <span className="text-sm text-white/80">
-              Cuidado com sua casa e seus estofados
-            </span>
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <Clock3 className="text-[#C7A54F]" size={22} />
-            <span className="text-sm text-white/80">
-              OrÃ§amento inicial pelo WhatsApp
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="servicos"
-        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8"
-      >
-        <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C7A54F] sm:text-xs">
-            Nossos serviÃ§os
-          </p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight sm:text-5xl">
-            O cuidado certo para cada superfÃ­cie.
-          </h2>
-          <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-            Cada tecido e cada peÃ§a exigem atenÃ§Ã£o prÃ³pria. Por isso, avaliamos
-            as caracterÃ­sticas do estofado antes de definir o procedimento.
-          </p>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <article
-                key={service.title}
-                className="group rounded-2xl border border-white/10 bg-[#11110f] p-7 transition duration-300 hover:border-[#C7A54F]/40 hover:bg-[#15130f] sm:p-9"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#C7A54F]/35 bg-[#C7A54F]/[0.07]">
-                  <Icon size={23} className="text-[#D5B66B]" strokeWidth={1.5} />
-                </div>
-                <p className="mt-6 text-[10px] uppercase tracking-[0.2em] text-[#C7A54F]">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-2 font-serif text-2xl">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">
-                  {service.description}
-                </p>
+              <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-light leading-[1.06] tracking-tight sm:text-6xl md:text-7xl">
+                Seu estofado limpo, protegido e bem cuidado.
+              </h1>
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-[#5E5A52] sm:text-lg">
+                Higienização profissional de sofás, poltronas, colchões e tapetes para residências,
+                condomínios e empresas.
+              </p>
+              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
-                  href={makeWhatsAppUrl(
-                    `OlÃ¡! Gostaria de saber mais sobre ${service.title.toLowerCase()} e solicitar um orÃ§amento.`
-                  )}
+                  href={WHATSAPP_LP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick(`ServiÃ§o: ${service.title}`)}
-                  className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#D5B66B] transition group-hover:gap-3"
+                  onClick={() => handleCTA("Hero")}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A24B] px-8 py-4 text-sm font-bold text-black shadow-[0_12px_45px_rgba(201,162,75,0.25)] transition hover:scale-[1.02] hover:bg-[#E0B95D] sm:w-auto"
                 >
-                  Consultar pelo WhatsApp <ArrowRight size={15} />
+                  <MessageCircle size={18} /> Solicitar avaliação pelo WhatsApp
                 </a>
-              </article>
-            );
-          })}
-        </div>
-      </section>
+                <a
+                  href="#servicos"
+                  className="inline-flex items-center gap-2 text-sm text-[#5E5A52] transition hover:text-white"
+                >
+                  Ver serviços <ArrowRight size={16} />
+                </a>
+              </div>
+              <p className="mt-5 text-xs text-[#777168]">
+                Envie uma foto do móvel e receba uma orientação inicial.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-      <section
-        id="resultados"
-        className="border-y border-white/10 bg-[#11100d]"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <section id="servicos" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
           <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C7A54F] sm:text-xs">
-              Resultados
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
+              Serviços
             </p>
-            <h2 className="mt-4 font-serif text-3xl sm:text-5xl">
-              O resultado aparece nos detalhes.
+            <h2 className="mt-4 text-3xl font-light tracking-tight text-[#25231F] sm:text-4xl">
+              Cuidado técnico para cada tipo de estofado
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-              Veja um registro de antes e depois de um atendimento. Cada
-              resultado depende do tecido, do tipo de sujidade e das condiÃ§Ãµes
-              da peÃ§a.
+            <p className="mt-5 text-[#5E5A52]">
+              Antes de iniciar, avaliamos o material e indicamos o cuidado mais adequado.
             </p>
           </div>
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-[#D8D0C1] bg-[#D8D0C1] sm:grid-cols-2">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <article key={service.title} className="bg-[#FCFBF8] p-7 sm:p-9">
+                  <Icon size={28} strokeWidth={1.5} className="text-[#775B20]" />
+                  <h3 className="mt-6 text-xl font-medium text-[#25231F]">{service.title}</h3>
+                  <p className="mt-3 leading-relaxed text-[#5E5A52]">{service.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
 
-          <div className="grid gap-5 md:grid-cols-2">
+        <section id="processo" className="border-y border-[#D8D0C1] bg-[#EDE7DA]">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
+                Como funciona
+              </p>
+              <h2 className="mt-4 text-3xl font-light text-[#25231F] sm:text-5xl">
+                Sem complicação, do primeiro contato ao cuidado final.
+              </h2>
+              <p className="mt-6 leading-relaxed text-[#5E5A52]">
+                Atendimento agendado em Sorocaba, Votorantim, Porto Feliz, Fazenda Boa Vista e
+                região.
+              </p>
+              <a
+                href={WHATSAPP_LP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleCTA("Processo")}
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#775B20] transition hover:text-white"
+              >
+                Quero enviar uma foto <ArrowRight size={17} />
+              </a>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ["01", "Envie uma foto", "Mostre o móvel e informe sua localização."],
+                ["02", "Receba a orientação", "Indicamos o cuidado mais adequado para o material."],
+                ["03", "Agende o atendimento", "Combinamos o melhor dia e horário para você."],
+              ].map(([number, title, description]) => (
+                <div
+                  key={number}
+                  className="rounded-2xl border border-[#D1C7B7] bg-[#F7F4EE]/75 p-6"
+                >
+                  <span className="text-3xl font-light text-[#775B20]">{number}</span>
+                  <h3 className="mt-8 font-medium">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#777168]">{description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="resultados" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+          <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
+              Resultado visível
+            </p>
+            <h2 className="mt-4 text-3xl font-light text-[#25231F] sm:text-4xl">
+              A diferença de um cuidado profissional
+            </h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
             {[
-              { src: beforeImg, label: "Antes do atendimento" },
-              { src: afterImg, label: "Depois do atendimento" },
+              { src: beforeImg, label: "Antes" },
+              { src: afterImg, label: "Depois" },
             ].map((item) => (
               <figure
                 key={item.label}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-black"
+                className="relative overflow-hidden rounded-2xl border border-[#D8D0C1]"
               >
                 <img
                   src={item.src}
-                  alt={`${item.label} - registro de resultado da MP Clean`}
-                  className="aspect-[4/3] w-full object-cover"
+                  alt={`Estofado ${item.label.toLowerCase()} da higienização MP Clean`}
+                  className="h-72 w-full object-cover sm:h-96"
                   loading="lazy"
                 />
-                <figcaption className="border-t border-white/10 px-5 py-4 text-center text-xs uppercase tracking-[0.2em] text-[#D5B66B]">
+                <figcaption className="absolute left-4 top-4 rounded-full bg-[#25231F]/85 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#F7F4EE]">
                   {item.label}
                 </figcaption>
               </figure>
             ))}
           </div>
+        </section>
 
-          <div className="mt-10 text-center">
-            <WhatsAppButton label="CTA antes e depois" />
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C7A54F] sm:text-xs">
-            Blindagem de estofados
-          </p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight sm:text-5xl">
-            ProteÃ§Ã£o para aproveitar seu estofado com mais tranquilidade.
-          </h2>
-          <p className="mt-6 text-sm leading-relaxed text-white/65 sm:text-base">
-            A blindagem forma uma proteÃ§Ã£o que ajuda a reduzir a absorÃ§Ã£o de
-            lÃ­quidos pelo tecido. Ã‰ uma opÃ§Ã£o para quem deseja incluir uma
-            camada adicional de cuidado na rotina.
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-white/65 sm:text-base">
-            A indicaÃ§Ã£o depende da composiÃ§Ã£o, do estado e das recomendaÃ§Ãµes
-            para cada material. Nossa equipe orienta vocÃª antes da aplicaÃ§Ã£o.
-          </p>
-          <WhatsAppButton
-            label="Blindagem"
-            className="mt-8"
-            message={makeWhatsAppUrl(
-              "OlÃ¡! Gostaria de receber informaÃ§Ãµes sobre a blindagem de estofados da MP Clean."
-            )}
-          />
-        </div>
-
-        <div className="relative overflow-hidden rounded-[1.7rem] border border-[#C7A54F]/25 bg-[#15130f] p-8 sm:p-12">
-          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#C7A54F]/10 blur-3xl" />
-          <ShieldCheck
-            size={48}
-            strokeWidth={1.2}
-            className="relative text-[#D5B66B]"
-          />
-          <h3 className="relative mt-7 font-serif text-3xl">
-            Cuidado que vai alÃ©m da limpeza.
-          </h3>
-          <ul className="relative mt-7 space-y-4 text-sm text-white/70">
-            <li className="flex gap-3">
-              <CheckCircle2 className="mt-0.5 shrink-0 text-[#C7A54F]" size={18} />
-              OrientaÃ§Ã£o conforme o tipo de tecido.
-            </li>
-            <li className="flex gap-3">
-              <CheckCircle2 className="mt-0.5 shrink-0 text-[#C7A54F]" size={18} />
-              AvaliaÃ§Ã£o prÃ©via da peÃ§a.
-            </li>
-            <li className="flex gap-3">
-              <CheckCircle2 className="mt-0.5 shrink-0 text-[#C7A54F]" size={18} />
-              RecomendaÃ§Ãµes para os cuidados posteriores.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="processo" className="border-y border-white/10 bg-[#11100d]">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C7A54F] sm:text-xs">
-              Atendimento
-            </p>
-            <h2 className="mt-4 font-serif text-3xl sm:text-5xl">
-              ComeÃ§ar Ã© simples.
-            </h2>
-            <p className="mt-4 text-sm text-white/60 sm:text-base">
-              VocÃª pode iniciar a conversa enviando uma foto pelo WhatsApp.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step, index) => (
+        <section id="confianca" className="border-y border-[#D8D0C1] bg-[#EDE7DA]">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
+                Confiança e cuidado
+              </p>
+              <h2 className="mt-4 text-3xl font-light text-[#25231F] sm:text-5xl">
+                Seu móvel merece mais do que uma limpeza rápida.
+              </h2>
+              <p className="mt-6 leading-relaxed text-[#5E5A52]">
+                A MP Clean trabalha com atendimento personalizado e foco na preservação de tecidos,
+                conforto e patrimônio.
+              </p>
+              <div className="mt-7 space-y-4 text-sm text-[#403D37]">
+                {[
+                  "Responsável técnico: Marcio Oliveira",
+                  "Atendimento residencial e corporativo",
+                  "Agendamento em Sorocaba e região",
+                  "Instagram oficial: @mpclean_sorocaba",
+                ].map((item) => (
+                  <p key={item} className="flex items-start gap-3">
+                    <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-[#775B20]" />
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-[#C9A24B]/35 bg-[#F7F4EE]/70 p-7 sm:p-9">
               <div
-                key={step}
-                className="rounded-2xl border border-white/10 bg-black/40 p-6"
+                className="flex items-center gap-1 text-[#775B20]"
+                aria-label="Avaliações no Google"
               >
-                <span className="font-serif text-3xl text-[#C7A54F]">
-                  0{index + 1}
-                </span>
-                <p className="mt-5 text-sm leading-relaxed text-white/75">
-                  {step}
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} size={16} fill="currentColor" />
+                ))}
+              </div>
+              <h3 className="mt-6 text-2xl font-light">Veja as avaliações reais no Google</h3>
+              <p className="mt-4 leading-relaxed text-[#5E5A52]">
+                Confira a experiência de clientes e conheça melhor o trabalho da MP Clean antes de
+                solicitar seu atendimento.
+              </p>
+              <a
+                href={GOOGLE_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 rounded-full border border-[#C9A24B] px-5 py-3 text-sm font-semibold text-[#775B20] transition hover:bg-[#C9A24B] hover:text-black"
+              >
+                Ver avaliações no Google <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="avaliacoes" className="border-y border-[#D8D0C1] bg-[#F7F4EE]">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
+                Experiências de clientes
+              </p>
+              <h2 className="mt-4 text-3xl font-light text-[#25231F] sm:text-5xl">
+                A confiança é construída em cada atendimento.
+              </h2>
+              <p className="mt-5 leading-relaxed text-[#5E5A52]">
+                Conheça relatos de clientes que confiaram seus estofados aos cuidados da MP Clean.
+              </p>
+              <div className="mt-7 inline-flex flex-col items-center rounded-2xl border border-[#C9A24B]/40 bg-white px-8 py-5">
+                <div className="flex items-center gap-1 text-[#A47B26]" aria-label="5 estrelas">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star key={index} size={19} fill="currentColor" />
+                  ))}
+                </div>
+                <p className="mt-2 text-sm font-semibold text-[#25231F]">
+                  Avaliações compartilhadas no Google
+                </p>
+                <p className="mt-1 text-xs text-[#777168]">
+                  Confira também o perfil oficial da MP Clean.
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="avaliacoes" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C7A54F] sm:text-xs">
-            ExperiÃªncias de clientes
-          </p>
-          <h2 className="mt-4 font-serif text-3xl sm:text-5xl">
-            A confianÃ§a Ã© construÃ­da em cada atendimento.
-          </h2>
-          <div className="mt-7 inline-flex flex-col items-center rounded-2xl border border-[#C7A54F]/30 bg-[#C7A54F]/[0.06] px-8 py-5">
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-4xl text-white">5,0</span>
-              <span className="flex gap-0.5 text-[#E5BD58]" aria-label="5 estrelas">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={17} fill="currentColor" />
-                ))}
-              </span>
             </div>
-            <p className="mt-1 text-xs text-white/60">
-              Nota exibida no Google Â· 7 avaliaÃ§Ãµes
-            </p>
-          </div>
-        </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review) => (
-            <article
-              key={review.name}
-              className="rounded-2xl border border-white/10 bg-[#11110f] p-6"
-            >
-              <div className="flex gap-1 text-[#E5BD58]" aria-label="5 estrelas">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={14} fill="currentColor" />
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {reviews.map((review) => (
+                <article
+                  key={review.name}
+                  className="rounded-2xl border border-[#D8D0C1] bg-white p-6 shadow-sm"
+                >
+                  <div className="flex gap-1 text-[#A47B26]" aria-label="5 estrelas">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} size={15} fill="currentColor" />
+                    ))}
+                  </div>
+                  <p className="mt-4 min-h-16 text-sm leading-relaxed text-[#403D37]">
+                    “{review.text}”
+                  </p>
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-[#775B20]">
+                    {review.name}
+                  </p>
+                  <p className="mt-1 text-[10px] text-[#888176]">
+                    Avaliação compartilhada no Google
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-14">
+              <div className="mb-6 text-center">
+                <h3 className="text-2xl font-light text-[#25231F]">
+                  Registros das avaliações no Google
+                </h3>
+                <p className="mt-2 text-sm text-[#777168]">
+                  Capturas reais fornecidas pela MP Clean.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {reviews.map((review) => (
+                  <figure
+                    key={`print-${review.name}`}
+                    className="flex min-h-36 items-center justify-center overflow-hidden rounded-xl border border-[#D8D0C1] bg-white p-3"
+                  >
+                    <img
+                      src={review.image}
+                      alt={`Captura da avaliação no Google: ${review.name}`}
+                      className="max-h-72 w-full object-contain"
+                      loading="lazy"
+                    />
+                  </figure>
                 ))}
               </div>
-              <p className="mt-4 min-h-16 text-sm leading-relaxed text-white/85">
-                â€œ{review.text}â€
-              </p>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-[#D5B66B]">
-                {review.name}
-              </p>
-              <p className="mt-1 text-[10px] text-white/40">
-                AvaliaÃ§Ã£o compartilhada no Google
-              </p>
-            </article>
-          ))}
-        </div>
+            </div>
 
-        <div className="mt-12">
-          <div className="mb-5 text-center">
-            <h3 className="font-serif text-2xl">Registros das avaliaÃ§Ãµes no Google</h3>
-            <p className="mt-2 text-xs text-white/50">
-              Capturas reais fornecidas pela MP Clean.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <figure
-                key={`print-${review.name}`}
-                className="flex min-h-36 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white p-2"
+            <div className="mt-10 text-center">
+              <a
+                href={GOOGLE_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#C9A24B] px-6 py-3 text-sm font-semibold text-[#775B20] transition hover:bg-[#C9A24B] hover:text-black"
               >
-                <img
-                  src={review.image}
-                  alt={`Captura real de avaliaÃ§Ã£o no Google: ${review.name}`}
-                  className="max-h-52 w-full object-contain"
-                  loading="lazy"
-                />
-              </figure>
+                Ver perfil e avaliações no Google <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+        </section>
+        <section id="duvidas" className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-28">
+          <div className="mb-12 text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
+              Dúvidas frequentes
+            </p>
+            <h2 className="mt-4 text-3xl font-light text-[#25231F] sm:text-4xl">
+              Antes de agendar, veja as respostas
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="group rounded-xl border border-[#D8D0C1] bg-[#FCFBF8] p-5"
+              >
+                <summary className="cursor-pointer list-none pr-6 font-medium text-[#25231F] marker:hidden">
+                  {faq.question}
+                </summary>
+                <p className="mt-4 leading-relaxed text-[#5E5A52]">{faq.answer}</p>
+              </details>
             ))}
           </div>
-        </div>
+        </section>
 
-        <div className="mt-10 text-center">
-          <WhatsAppButton label="CTA avaliaÃ§Ãµes" />
-        </div>
-      </section>
-
-      <section className="border-y border-[#C7A54F]/20 bg-[#15120c]">
-        <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D5B66B] sm:text-xs">
-            Vamos cuidar do seu estofado?
-          </p>
-          <h2 className="mt-5 font-serif text-3xl leading-tight sm:text-5xl">
-            Envie uma foto. A MP Clean orienta vocÃª sobre o prÃ³ximo passo.
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-            Conte o que vocÃª precisa, envie uma foto do estofado e solicite uma
-            avaliaÃ§Ã£o inicial sem complicaÃ§Ã£o.
-          </p>
-          <WhatsAppButton
-            label="CTA final"
-            className="mt-8 w-full max-w-md sm:w-auto"
-          />
-          <p className="mt-4 text-[11px] text-white/45">
-            Atendimento em Sorocaba e regiÃ£o.
-          </p>
-        </div>
-      </section>
-
-      <footer className="bg-[#070707]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
-          <div>
-            <img
-              src="/logo.png"
-              alt="MP Clean"
-              className="h-11 w-auto object-contain"
-              loading="lazy"
-            />
-            <p className="mt-4 max-w-sm text-xs leading-relaxed text-white/50">
-              Mais do que limpeza, uma experiÃªncia de cuidado. HigienizaÃ§Ã£o e
-              blindagem de estofados em Sorocaba e regiÃ£o.
+        <section id="contato" className="border-t border-white/10 bg-[#C9A24B] text-black">
+          <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-24">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/65">
+              MP Clean · Sorocaba e região
             </p>
-          </div>
-
-          <div>
-            <h3 className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C7A54F]">
-              Fale com a MP Clean
-            </h3>
-            <a
-              href={mainWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("RodapÃ©")}
-              className="mt-4 flex items-center gap-2 text-sm text-white/70 transition hover:text-white"
-            >
-              <MessageCircle size={16} /> (15) 98806-4494
-            </a>
-            <a
-              href="https://www.instagram.com/mpclean_sorocaba/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 flex items-center gap-2 text-sm text-white/70 transition hover:text-white"
-            >
-              <span aria-hidden="true">â—Ž</span> @mpclean_sorocaba
-            </a>
-          </div>
-
-          <div>
-            <h3 className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C7A54F]">
-              RegiÃ£o de atendimento
-            </h3>
-            <p className="mt-4 flex items-center gap-2 text-sm text-white/70">
-              <MapPin size={16} /> Sorocaba e regiÃ£o Â· SÃ£o Paulo
+            <h2 className="mt-5 text-4xl font-light leading-tight sm:text-6xl">
+              Quer saber o melhor cuidado para o seu estofado?
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-black/70">
+              Envie uma foto pelo WhatsApp e receba uma orientação inicial para sua casa ou empresa.
             </p>
             <a
-              href="#inicio"
-              className="mt-5 inline-flex items-center gap-2 text-xs text-white/45 transition hover:text-white"
+              href={WHATSAPP_LP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleCTA("CTA final")}
+              className="mt-9 inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-black"
             >
-              Voltar ao inÃ­cio <ChevronDown className="rotate-180" size={14} />
+              <MessageCircle size={18} /> Solicitar avaliação agora
             </a>
+            <p className="mt-6 text-sm text-black/65">
+              WhatsApp: (15) 98806-4494 · Atendimento com hora marcada
+            </p>
           </div>
-        </div>
-        <div className="border-t border-white/10 px-4 py-5 text-center text-[10px] text-white/35">
-          Â© {new Date().getFullYear()} MP Clean. Todos os direitos reservados.
-        </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-[#D8D0C1] bg-[#25231F] px-4 py-10 text-center text-xs text-[#D6D1C6] sm:px-6">
+        <p>MP CLEAN — CONSERVAÇÃO E PROTEÇÃO PATRIMONIAL</p>
+        <p className="mt-2">Sorocaba (SP) · Votorantim · Porto Feliz · Fazenda Boa Vista</p>
+        <a
+          href="https://www.instagram.com/mpclean_sorocaba/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-block text-[#775B20] hover:text-white"
+        >
+          @mpclean_sorocaba
+        </a>
       </footer>
-
-      <a
-        href={mainWhatsAppUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackWhatsAppClick("BotÃ£o flutuante mobile")}
-        aria-label="Solicitar orÃ§amento pelo WhatsApp"
-        className="fixed inset-x-3 bottom-3 z-50 flex items-center justify-center gap-2 rounded-full px-5 py-4 text-sm font-bold text-[#102016] shadow-[0_8px_30px_rgba(0,0,0,0.55)] ring-1 ring-black/10 transition hover:brightness-105 sm:inset-x-auto sm:bottom-6 sm:right-6 sm:px-6"
-        style={{ backgroundColor: WHATSAPP_GREEN }}
-      >
-        <MessageCircle size={20} />
-        SOLICITAR ORÃ‡AMENTO NO WHATSAPP
-      </a>
-    </main>
+    </div>
   );
 }
