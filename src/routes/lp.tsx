@@ -584,7 +584,18 @@ function LandingPage() {
         </section>
       </main>
 
-      <a\n        href={WHATSAPP_LP_URL}\n        target="_blank"\n        rel="noopener noreferrer"\n        onClick={() => handleCTA("Botão fixo") }\n        className="fixed bottom-3 left-3 right-3 z-50 mx-auto flex min-h-14 max-w-md items-center justify-center gap-3 rounded-full bg-[#25D366] px-5 py-4 text-sm font-extrabold text-[#12351F] shadow-[0_10px_30px_rgba(37,211,102,0.35)] transition hover:bg-[#39E477] active:scale-[0.98] sm:bottom-6 sm:left-auto sm:right-6 sm:mx-0 sm:w-auto sm:max-w-none sm:px-7"\n        aria-label="Pedir orçamento pelo WhatsApp"\n      >\n        <MessageCircle size={22} /> Pedir orçamento pelo WhatsApp\n      </a>\n\n      <footer className="border-t border-[#D8D0C1] bg-[#25231F] px-4 py-10 text-center text-xs text-[#D6D1C6] sm:px-6">
+      <a
+        href={WHATSAPP_LP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => handleCTA("Botão fixo") }
+        className="fixed bottom-3 left-3 right-3 z-50 mx-auto flex min-h-14 max-w-md items-center justify-center gap-3 rounded-full bg-[#25D366] px-5 py-4 text-sm font-extrabold text-[#12351F] shadow-[0_10px_30px_rgba(37,211,102,0.35)] transition hover:bg-[#39E477] active:scale-[0.98] sm:bottom-6 sm:left-auto sm:right-6 sm:mx-0 sm:w-auto sm:max-w-none sm:px-7"
+        aria-label="Pedir orçamento pelo WhatsApp"
+      >
+        <MessageCircle size={22} /> Pedir orçamento pelo WhatsApp
+      </a>
+
+      <footer className="border-t border-[#D8D0C1] bg-[#25231F] px-4 py-10 text-center text-xs text-[#D6D1C6] sm:px-6">
         <p>MP CLEAN — CONSERVAÇÃO E PROTEÇÃO PATRIMONIAL</p>
         <p className="mt-2">Sorocaba (SP) · Votorantim · Porto Feliz · Fazenda Boa Vista</p>
         <a
