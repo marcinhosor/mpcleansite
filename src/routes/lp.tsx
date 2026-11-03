@@ -203,7 +203,7 @@ function LandingPage() {
   const handleCTA = (label: string) => reportWhatsAppConversion(`LP ${label}`);
 
   return (
-    <div className="min-h-screen bg-[#F7F4EE] text-[#25231F] antialiased selection:bg-[#C9A24B] selection:text-black">
+    <div className="min-h-screen bg-[#F7F4EE] pb-24 text-[#25231F] antialiased selection:bg-[#C9A24B] selection:text-black">
       <div className="border-b border-[#C9A24B]/25 bg-[#EDE7DA] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-[#775B20] sm:text-xs">
         Atendimento em Sorocaba e região · Orçamento pelo WhatsApp
       </div>
@@ -236,7 +236,7 @@ function LandingPage() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleCTA("Cabeçalho")}
-            className="inline-flex items-center gap-2 rounded-full border border-[#C9A24B] px-4 py-2 text-xs font-semibold text-[#775B20] transition hover:bg-[#C9A24B] hover:text-black"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-xs font-extrabold text-[#12351F] shadow-md transition hover:-translate-y-0.5 hover:bg-[#39E477] sm:px-5"
           >
             <MessageCircle size={15} />
             <span className="hidden sm:inline">Falar no WhatsApp</span>
@@ -273,9 +273,9 @@ function LandingPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleCTA("Hero")}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A24B] px-8 py-4 text-sm font-bold text-black shadow-[0_12px_45px_rgba(201,162,75,0.25)] transition hover:scale-[1.02] hover:bg-[#E0B95D] sm:w-auto"
+                  className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-sm font-extrabold tracking-wide text-[#12351F] shadow-[0_14px_38px_rgba(37,211,102,0.28)] transition hover:-translate-y-0.5 hover:bg-[#39E477] hover:shadow-[0_18px_42px_rgba(37,211,102,0.36)] sm:w-auto sm:min-w-[340px]"
                 >
-                  <MessageCircle size={18} /> Solicitar avaliação pelo WhatsApp
+                  <MessageCircle size={21} /> QUERO MEU ORÇAMENTO PELO WHATSAPP
                 </a>
                 <a
                   href="#servicos"
@@ -573,9 +573,9 @@ function LandingPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTA("CTA final")}
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-black"
+              className="mt-9 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-sm font-extrabold text-[#12351F] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#39E477]"
             >
-              <MessageCircle size={18} /> Solicitar avaliação agora
+              <MessageCircle size={21} /> QUERO FALAR COM A MP CLEAN
             </a>
             <p className="mt-6 text-sm text-black/65">
               WhatsApp: (15) 98806-4494 · Atendimento com hora marcada
@@ -584,7 +584,7 @@ function LandingPage() {
         </section>
       </main>
 
-      <footer className="border-t border-[#D8D0C1] bg-[#25231F] px-4 py-10 text-center text-xs text-[#D6D1C6] sm:px-6">
+      <a\n        href={WHATSAPP_LP_URL}\n        target="_blank"\n        rel="noopener noreferrer"\n        onClick={() => handleCTA("Botão fixo") }\n        className="fixed bottom-3 left-3 right-3 z-50 mx-auto flex min-h-14 max-w-md items-center justify-center gap-3 rounded-full bg-[#25D366] px-5 py-4 text-sm font-extrabold text-[#12351F] shadow-[0_10px_30px_rgba(37,211,102,0.35)] transition hover:bg-[#39E477] active:scale-[0.98] sm:bottom-6 sm:left-auto sm:right-6 sm:mx-0 sm:w-auto sm:max-w-none sm:px-7"\n        aria-label="Pedir orçamento pelo WhatsApp"\n      >\n        <MessageCircle size={22} /> Pedir orçamento pelo WhatsApp\n      </a>\n\n      <footer className="border-t border-[#D8D0C1] bg-[#25231F] px-4 py-10 text-center text-xs text-[#D6D1C6] sm:px-6">
         <p>MP CLEAN — CONSERVAÇÃO E PROTEÇÃO PATRIMONIAL</p>
         <p className="mt-2">Sorocaba (SP) · Votorantim · Porto Feliz · Fazenda Boa Vista</p>
         <a
