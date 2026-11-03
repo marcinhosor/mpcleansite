@@ -291,6 +291,57 @@ function LandingPage() {
           </div>
         </section>
 
+        <section id="resultados" className="border-y border-[#D8D0C1] bg-[#25231F] text-[#F7F4EE]">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D5B66A] sm:text-xs">
+                Resultado visível
+              </p>
+              <h2 className="mt-4 text-3xl font-light leading-tight sm:text-5xl">
+                A diferença de um cuidado profissional.
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-[#D6D1C6] sm:text-base">
+                Veja a transformação no estofado. O cuidado certo faz diferença — e o resultado aparece.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+              {[
+                { src: beforeImg, label: "Antes" },
+                { src: afterImg, label: "Depois" },
+              ].map((item) => (
+                <figure
+                  key={item.label}
+                  className="relative overflow-hidden rounded-2xl border border-[#D5B66A]/40 bg-black shadow-2xl"
+                >
+                  <img
+                    src={item.src}
+                    alt={`Resultado real de higienização de estofado MP Clean — ${item.label.toLowerCase()}`}
+                    className="h-[300px] w-full object-cover sm:h-[440px]"
+                    loading="eager"
+                  />
+                  <figcaption className="absolute left-4 top-4 rounded-full border border-[#D5B66A]/50 bg-[#25231F]/90 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#F7F4EE]">
+                    {item.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="mt-9 text-center">
+              <a
+                href={WHATSAPP_LP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleCTA("Resultado")}
+                className="inline-flex min-h-14 w-full max-w-md items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-sm font-extrabold text-[#12351F] shadow-[0_14px_38px_rgba(37,211,102,0.28)] transition hover:-translate-y-0.5 hover:bg-[#39E477] sm:w-auto"
+              >
+                <MessageCircle size={21} /> QUERO UM RESULTADO ASSIM
+              </a>
+              <p className="mt-3 text-xs text-[#D6D1C6]">
+                Envie uma foto do seu estofado e peça uma avaliação pelo WhatsApp.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section id="servicos" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
           <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
@@ -356,38 +407,6 @@ function LandingPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section id="resultados" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-          <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#775B20]">
-              Resultado visível
-            </p>
-            <h2 className="mt-4 text-3xl font-light text-[#25231F] sm:text-4xl">
-              A diferença de um cuidado profissional
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {[
-              { src: beforeImg, label: "Antes" },
-              { src: afterImg, label: "Depois" },
-            ].map((item) => (
-              <figure
-                key={item.label}
-                className="relative overflow-hidden rounded-2xl border border-[#D8D0C1]"
-              >
-                <img
-                  src={item.src}
-                  alt={`Estofado ${item.label.toLowerCase()} da higienização MP Clean`}
-                  className="h-72 w-full object-cover sm:h-96"
-                  loading="lazy"
-                />
-                <figcaption className="absolute left-4 top-4 rounded-full bg-[#25231F]/85 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#F7F4EE]">
-                  {item.label}
-                </figcaption>
-              </figure>
-            ))}
           </div>
         </section>
 
